@@ -1,6 +1,10 @@
 <%= render "search" %>
 
-<h4 align="center"><%= @prime_number_from %>〜<%= @prime_number_to %>の素数たち</h4>
+<h4 align="center">
+  <%= @prime_number_from %>〜<%= @prime_number_to %>の素数たち
+  <p>素数の合計：<%= prime_number_count %></p>
+</h4>
+
 <table>
 <% (@prime_number_from..@prime_number_to).each do |num| %>
   <td>
