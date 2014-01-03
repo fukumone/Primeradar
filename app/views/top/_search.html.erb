@@ -5,6 +5,7 @@
 <% end %>
 
 <% if @prime.present? %>
-  <%= prime_number(@prime) %>
+  <%= "#{@prime}は素数です" if prime_number(@prime) %>
+  <%= "#{@prime}は素数ではない" if composite_number(@prime) %>
 <% end %>
 <hr>

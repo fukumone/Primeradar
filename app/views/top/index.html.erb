@@ -3,7 +3,10 @@
 デフォルトの設定
 <table>
 <% (1..50).each do |num| %>
-  <tr></tr>
-  <td><%= prime_number(num) %></td>
+  <td>
+  <div class="composite"><%= composite_number(num) %></div>
+  <div class="prime"><%= prime_number(num) %></div>
+  </td>
 <% end %>
 </table>
+
