@@ -4,8 +4,11 @@
 </div>
 <hr>
 
+<%= render "search" %>
+
+デフォルトの設定
 <table>
-<% (1..10000).each do |num| %>
+<% (1..50).each do |num| %>
   <tr></tr>
   <td><%= prime_number(num) %></td>
 <% end %>

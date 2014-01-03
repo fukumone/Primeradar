@@ -1,0 +1,10 @@
+<%= form_tag :root, method: :get do %>
+  <%= label_tag :prime_number %>
+  <%= text_field_tag :prime_number, params[:prime_number] %>
+  <%= submit_tag "検索" %>
+<% end %>
+
+<% if @prime.present? %>
+  <%= (prime_number(@prime)) %>
+<% end %>
+<hr>
