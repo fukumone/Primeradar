@@ -1,17 +1,12 @@
 module PrimeHelper
 
-  def prime_number(prime)
-    arr = []
-    (1..prime).each do |num|
-      if prime % num == 0
-        arr << num
-      end
-    end
-
-    if arr.count < 3 && prime != 1 && 0 < prime
-      "#{prime}は素数です"
+  def prime_number(number)
+    sqrt = Math.sqrt(number)
+    factor_found = (2..sqrt).any? { |i| number % i == 0 }
+    if factor_found || number == 1
+      "#{number}は素数ではない\n"
     else
-      "#{prime}は素数ではない"
+      "#{number}は素数である\n"
     end
   end
 

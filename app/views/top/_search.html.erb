@@ -1,5 +1,5 @@
 <%= form_tag :root, method: :get do %>
-  <%= label_tag :prime_number %>
+  <%= label_tag :prime_number, "素数検索" %>
   <%= text_field_tag :prime_number, params[:prime_number] %>
   <%= submit_tag "検索" %>
 <% end %>
