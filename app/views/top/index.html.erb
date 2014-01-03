@@ -1,8 +1,8 @@
 <%= render "search" %>
 
-デフォルトの設定
+<h4 align="center"><%= @prime_number_from %>〜<%= @prime_number_to %>の素数たち</h4>
 <table>
-<% (1..50).each do |num| %>
+<% (@prime_number_from..@prime_number_to).each do |num| %>
   <td>
   <div class="composite"><%= composite_number(num) %></div>
   <div class="prime"><%= prime_number(num) %></div>

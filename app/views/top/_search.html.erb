@@ -1,3 +1,5 @@
+<br>
+<div id="number_center">
 <%= form_tag :root, method: :get do %>
   <%= label_tag :prime_number, "素数検索" %>
   <%= text_field_tag :prime_number, params[:prime_number] %>
@@ -6,6 +8,15 @@
 
 <% if @prime.present? %>
   <%= "#{@prime}は素数です" if prime_number(@prime) %>
-  <%= "#{@prime}は素数ではない" if composite_number(@prime) %>
+  <%= "#{@prime}は素数ではありません" if composite_number(@prime) %>
+<% end %>
+
+<%= form_tag :root, method: :get do %>
+<br>
+  範囲検索
+  <%= text_field_tag :prime_number_from, params[:prime_number_from] %> 〜
+  <%= text_field_tag :prime_number_to, params[:prime_number_to] %>
+  <%= submit_tag "検索" %>
 <% end %>
 <hr>
+</div>
