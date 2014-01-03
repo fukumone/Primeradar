@@ -17,6 +17,8 @@ table {
   border-collapse: collapse;
 
   td, th {
+    width: 100px;
+    text-align: center;
     border: 1px solid #c4c4c4;
     padding: 2px 4px;
   }

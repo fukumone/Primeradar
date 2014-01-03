@@ -7,8 +7,8 @@
 <% end %>
 
 <% if @prime.present? %>
-  <%= "#{@prime}は素数です" if prime_number(@prime) %>
-  <%= "#{@prime}は素数ではありません" if composite_number(@prime) %>
+  <%= "#{number_with_delimiter(@prime)}は素数です" if prime_number(@prime) %>
+  <%= "#{number_with_delimiter(@prime)}は素数ではありません" if composite_number(@prime) %>
 <% end %>
 
 <%= form_tag :root, method: :get do %>

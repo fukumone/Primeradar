@@ -21,8 +21,7 @@ module PrimeHelper
     (@prime_number_from..@prime_number_to).each do |num|
       arr << prime_number(num)
     end
-    arr.compact.count
+    arr.compact
   end
-
 
 end
