@@ -3,6 +3,8 @@
 <%= form_tag :root, method: :get do %>
   <%= label_tag :prime_number, "素数検索" %>
   <%= text_field_tag :prime_number, params[:prime_number] %>
+  <%= hidden_field_tag :prime_number_from, params[:prime_number_from] %>
+  <%= hidden_field_tag :prime_number_to, params[:prime_number_to] %>
   <%= submit_tag "検索" %>
 <% end %>
 

@@ -1,11 +1,11 @@
 <%= render "search" %>
 
 <h4 align="center">
-  <%= @prime_number_from %>〜<%= @prime_number_to %>の素数たち
+  <%= @prime_number_from %>〜<%= @prime_number_to %>の中の素数たち
   <p>素数の合計：<%= number_with_delimiter(prime_number_count).count %></p>
 </h4>
 
-<table width="1000px">
+<table width="80%" >
 <% prime_number_count.each do |num|  %>
   <td width="100px" style="float: left;">
   <div class="prime"><%= num %></div>
