@@ -1,4 +1,6 @@
 Hiyiyi
 ======
 
-project管理
+素数をsearchする
+
+素数表

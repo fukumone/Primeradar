@@ -1,0 +1,12 @@
+<hr>
+<div style="text-align: center;">
+  <h1>素数の早見表</h1>
+</div>
+<hr>
+
+<table>
+<% (1..10000).each do |num| %>
+  <tr></tr>
+  <td><%= prime_number(num) %></td>
+<% end %>
+</table>
