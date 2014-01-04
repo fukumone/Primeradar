@@ -18,8 +18,10 @@
 <%= form_tag :root, method: :get do %>
 <br>
   範囲検索
-  <%= text_field_tag :prime_number_from, params[:prime_number_from] %> 〜
-  <%= text_field_tag :prime_number_to, params[:prime_number_to] %>
+  <%= text_field_tag :prime_number_from, "", value: params[:prime_number_from].blank? ?
+  0 : params[:prime_number_from] %> 〜
+  <%= text_field_tag :prime_number_to, "", value: params[:prime_number_to].blank? ?
+  50 : params[:prime_number_to] %>
   <%= hidden_field_tag :prime_number, params[:prime_number] %>
   <%= submit_tag "検索" %>
 <% end %>
