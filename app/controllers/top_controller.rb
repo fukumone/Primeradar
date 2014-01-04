@@ -1,8 +1,11 @@
 class TopController < ApplicationController
+  before_action :check_prime_number
   before_action :range_number
 
+  include ErrorsHelper
+
   def index
-    if params[:prime_number].present?
+    if params[:prime_number].present? && @error.blank?
       @prime = params[:prime_number].to_i
     end
   end
@@ -21,4 +24,5 @@ class TopController < ApplicationController
       @prime_number_from = params[:prime_number_from].to_i
     end
   end
+
 end

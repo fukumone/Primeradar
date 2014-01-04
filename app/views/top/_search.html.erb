@@ -8,7 +8,9 @@
   <%= submit_tag "検索" %>
 <% end %>
 
-<% if @prime.present? %>
+  <p class="error"><%= @error[:prime_number] if @error.present? %></p>
+
+<% if @prime.present? && @error.blank? %>
   <%= "#{number_with_delimiter(@prime)}は素数です" if prime_number(@prime) %>
   <%= "#{number_with_delimiter(@prime)}は素数ではありません" if composite_number(@prime) %>
 <% end %>
