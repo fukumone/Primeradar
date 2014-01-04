@@ -5,7 +5,7 @@ class TopController < ApplicationController
   include ErrorsHelper
 
   def index
-    if params[:prime_number].present? && @error.blank?
+    if params[:prime_number].present?
       @prime = params[:prime_number].to_i
     end
   end
