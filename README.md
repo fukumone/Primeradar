@@ -3,4 +3,4 @@
 知りたい素数はどこにあるか見つけるサイトです、
 本サイトはこちらです！
 
-http://primeradar.herokuapp.com/ | git@heroku.com:primeradar.git
+http://primeradar.herokuapp.com/
