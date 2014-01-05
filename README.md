@@ -1,8 +1,6 @@
-Hiyiyi
-======
+素数を探す
 
-素数表
+知りたい素数はどこにあるか見つけるサイトです、
+本サイトはこちらです！
 
-素数を探す。
-
-
+http://primeradar.herokuapp.com/ | git@heroku.com:primeradar.git
