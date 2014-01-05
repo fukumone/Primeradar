@@ -26,5 +26,7 @@
   <%= submit_tag "検索" %>
 <% end %>
   <p class="error"><%= @error[:prime_number_from] if @error[:prime_number_from].present? %></p>
+  範囲検索の場合、ケタ数が多くなると検索時間が遅くなります、もしくはバグリます、ここは気をつけて慎重に！入力して下され。<br>
+  例: 11,110,000〜11,110,000は検索が普通にできますが0〜11,110,000だと遅くなります。
 <hr>
 </div>
