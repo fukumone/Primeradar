@@ -1,6 +1,6 @@
 module ApplicationHelper
 
   def document_title
-    @document_title || 'きれいな素数'
+    @document_title || '素数レーダー'
   end
 end
