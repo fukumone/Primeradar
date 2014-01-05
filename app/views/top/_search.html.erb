@@ -3,11 +3,10 @@
 <%= form_tag :root, method: :get do %>
   <%= label_tag :prime_number, "素数検索" %>
   <%= text_field_tag :prime_number, params[:prime_number] %>
-  <%= hidden_field_tag :prime_number_from, params[:prime_number_from] %>
-  <%= hidden_field_tag :prime_number_to, params[:prime_number_to] %>
   <%= submit_tag "検索" %>
 <% end %>
-
+ダイレクトに素数を検索する、桁数は今現在確認した段階では10の20乗までは動きます。<br>
+つまり、1000兆の10万倍までです。
   <p class="error"><%= @error[:prime_number] if @error[:prime_number].present? %></p>
 
 <% if @prime.present? && @error[:prime_number].blank? %>
@@ -26,7 +25,8 @@
   <%= submit_tag "検索" %>
 <% end %>
   <p class="error"><%= @error[:prime_number_from] if @error[:prime_number_from].present? %></p>
-  範囲検索の場合、ケタ数が多くなると検索時間が遅くなります、もしくはバグリます、ここは気をつけて慎重に！入力して下され。<br>
-  例: 11,110,000〜11,110,000は検索が普通にできますが0〜11,110,000だと遅くなります。
+  範囲検索の場合、ケタ数が多くなると検索時間が遅くなります、もしくはサーバーがダウンします、ここは気をつけて慎重に！入力して下され。<br>
+  例: 11,110,000〜11,111,111は検索が普通にできますが0〜11,110,000だと遅くなります。
+  10万の位までは正常に動きます。
 <hr>
 </div>
