@@ -10,9 +10,7 @@ gem 'therubyracer', platforms: :ruby
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
-gem 'rails-i18n'
 gem 'kaminari'
-gem 'annotate', '~> 2.6.0.beta2'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
