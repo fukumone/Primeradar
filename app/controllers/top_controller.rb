@@ -25,4 +25,13 @@ class TopController < ApplicationController
     end
   end
 
+  def twins_range_number
+    if params[:twins_prime_number_to].present?
+      @twins_prime_number_to = params[:twins_prime_number_to].to_i
+    end
+    if params[:twins_prime_number_from].present?
+      @twins_prime_number_from = params[:twins_prime_number_from].to_i
+    end
+  end
+
 end

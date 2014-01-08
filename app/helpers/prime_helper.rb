@@ -1,4 +1,5 @@
 module PrimeHelper
+require 'prime'
 
   def prime_number(number)
     sqrt = Math.sqrt(number)
@@ -22,6 +23,16 @@ module PrimeHelper
       arr << prime_number(num)
     end
     arr.compact
+  end
+
+  def twins_prime_number_count
+    arr = []
+    arr_2 = []
+    (@prime_number_from..@prime_number_to).each do |num|
+      arr << prime_number(num)
+    end
+    arr = arr.compact
+    arr.map(&:to_i).each_cons(2).select{ |b, r| (r - b) == 2}.count
   end
 
 end

@@ -5,8 +5,12 @@
   <p>素数の合計：<%= number_with_delimiter(prime_number_count).count %></p>
 </h4>
 
+<h4 align="center">
+  <p>双子素数の合計：<%= number_with_delimiter(twins_prime_number_count) %></p>
+</h4>
+
 <table width="80%" >
-<% prime_number_count.each do |num|  %>
+<% prime_number_count.each do |num| %>
   <td width="100px" style="float: left;">
   <div class="prime"><%= num %></div>
   </td>
