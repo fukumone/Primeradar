@@ -1,6 +1,8 @@
 Hiyiyi::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
+  # googleanalyticsで取得したTrackerIDをセット
+  GA.tracker = "UA-46783514-2"
   # Code is not reloaded between requests.
   config.cache_classes = true
 
