@@ -17,16 +17,22 @@
 <%= form_tag :root, method: :get do %>
 <br>
   範囲検索
-  <%= text_field_tag :prime_number_from, "", value: params[:prime_number_from].blank? ?
-  0 : params[:prime_number_from] %> 〜
-  <%= text_field_tag :prime_number_to, "", value: params[:prime_number_to].blank? ?
-  50 : params[:prime_number_to], maxlength: 6 %>
+  <%= text_field_tag :prime_number_from, "", maxlength: 6 %> 〜
+  <%= text_field_tag :prime_number_to, "", maxlength: 6 %>
+  <%= hidden_field_tag :prime_number, params[:prime_number] %>
+  <%= submit_tag "検索" %>
+  <p class="error"><%= @error[:prime_number_from] if @error[:prime_number_from].present? %></p>
+  範囲検索の場合、ケタ数が多くなると検索時間が遅くなります、 10万の位まで検索できます。
+  <br>
+  <br>
+  双子素数検索
+  <%= text_field_tag :twins_prime_number_from, "",maxlength: 6 %> 〜
+  <%= text_field_tag :twins_prime_number_to, "", maxlength: 6 %>
   <%= hidden_field_tag :prime_number, params[:prime_number] %>
   <%= submit_tag "検索" %>
 <% end %>
-  <p class="error"><%= @error[:prime_number_from] if @error[:prime_number_from].present? %></p>
-  範囲検索の場合、ケタ数が多くなると検索時間が遅くなります、 10万の位まで検索できます。
 
+  隣り合う素数の差が２の素数の組を検索します。
 </div>
 
 <hr>
