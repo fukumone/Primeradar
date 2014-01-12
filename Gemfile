@@ -18,7 +18,8 @@ group :doc do
 end
 
 group :development, :test do
-    gem 'sqlite3'
+    gem 'mysql2'
+    gem 'annotate', :git => 'git://github.com/ctran/annotate_models.git'
 end
 
 group :production do
