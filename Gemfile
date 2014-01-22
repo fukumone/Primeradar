@@ -11,6 +11,8 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 gem 'kaminari'
 gem 'google-analytics-rails'
+gem 'parallel'
+gem 'activerecord-import'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
@@ -20,6 +22,7 @@ end
 group :development, :test do
     gem 'mysql2'
     gem 'annotate', :git => 'git://github.com/ctran/annotate_models.git'
+    gem 'spring'
 end
 
 group :production do

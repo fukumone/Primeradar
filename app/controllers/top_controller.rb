@@ -16,7 +16,7 @@ class TopController < ApplicationController
   def search
   end
 
-  private
+  # private
   # def range_number
   #   @prime_number_from = 1
   #   if params[:prime_number_to].present?
