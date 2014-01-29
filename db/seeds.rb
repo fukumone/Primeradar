@@ -1,4 +1,4 @@
-require 'Prime'
+require 'prime'
 require 'parallel'
 
 # Prime.each(10 ** 6) do |prime|
