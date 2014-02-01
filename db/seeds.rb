@@ -1,5 +1,5 @@
-require 'prime'
-require 'parallel'
+require 'Prime'
+# require 'parallel'
 
 # Prime.each(10 ** 6) do |prime|
 #   PrimeNumber.create(
