@@ -1,4 +1,5 @@
-require 'Prime'
+require './prime.rb'
+
 # require 'parallel'
 
 # Prime.each(10 ** 6) do |prime|
@@ -58,7 +59,7 @@ require 'Prime'
 # PrimeNumber.import arr_prime
 
 arr_prime = []
-Prime.each(10 ** 7) do |prime|
+Prime.each(10 ** 6) do |prime|
   arr_prime << PrimeNumber.new(:prime_number => prime)
 end
 

@@ -10,8 +10,6 @@
 
 class PrimeNumber < ActiveRecord::Base
 
-require 'Prime'
-
   class << self
 
     def search_range_prime(params)
