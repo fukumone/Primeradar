@@ -13,7 +13,7 @@
 
 <% end %>
 
-<% if @search_range.present? %>
+<% if @search_range.kind_of?(Hash) && @error_range.blank? %>
 
   <h4 align="center">
     <%= params[:prime_number_from] %>〜<%= params[:prime_number_to] %>の中の素数たち
@@ -28,5 +28,8 @@
     <% end %>
   </table>
   <br>
+<% end %>
 
+<% if @error_range.present?  %>
+  <%= @error_range %>
 <% end %>

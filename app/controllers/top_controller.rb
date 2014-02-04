@@ -17,13 +17,23 @@ class TopController < ApplicationController
   end
 
   def search_prime
-    @search_range = PrimeNumber.search_range_prime(params)
-    render "index"
+    result_one = PrimeNumber.search_range_prime(params)
+    if result_one.kind_of?(Hash)
+      @error_range = result_one
+    else
+      @search_range = result_one
+      render "index"
+    end
   end
 
   def search_twins_prime
-    @search_twins_range = PrimeNumber.search_twins_range_prime(params)
-    render "index"
+    result_two = PrimeNumber.search_twins_range_prime(params)
+    if result_two.kind_of?(Hash)
+      @error_twins = result_two
+    else
+      @search_twins_range = result_two
+      render "index"
+    end
   end
 
   # private

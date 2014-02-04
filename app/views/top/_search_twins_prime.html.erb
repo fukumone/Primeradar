@@ -9,7 +9,7 @@
 
   隣り合う素数の差が２の素数の組を検索します。
 
-<% if @search_twins_range.present? %>
+<% if @error_twins.blank? %>
 <h4 align="center">
 <%= params[:twins_prime_number_from] %>〜<%= params[:twins_prime_number_to] %>の中の素数たち
 <p>双子素数の組の合計：<%= number_with_delimiter(@search_twins_range.count) %></p>
@@ -25,4 +25,9 @@
     </td>
   <% end %>
 </table>
+
+<% end %>
+
+<% if @error_twins.present? %>
+<%= @error_twins %>
 <% end %>
