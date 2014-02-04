@@ -1,19 +1,29 @@
 class TopController < ApplicationController
-  before_action :check_prime_number
+  # before_action :check_prime_number
   # before_action :range_number
   # before_action :twins_range_number
 
-  include ErrorsHelper
+  # include ErrorsHelper
 
   def index
-    if params[:prime_number].present?
-      @prime = params[:prime_number].to_i
-    end
-    @search_range = PrimeNumber.search_range_prime(params)
-    @search_twins_range = PrimeNumber.search_twins_range_prime(params)
+
   end
 
   def search
+    if params[:prime_number].present?
+      @prime = params[:prime_number].to_i
+      render "index"
+    end
+  end
+
+  def search_prime
+    @search_range = PrimeNumber.search_range_prime(params)
+    render "index"
+  end
+
+  def search_twins_prime
+    @search_twins_range = PrimeNumber.search_twins_range_prime(params)
+    render "index"
   end
 
   # private

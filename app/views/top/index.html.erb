@@ -1,35 +1,8 @@
+<br>
+<div id="number_center">
 <%= render "search" %>
+<%= render "search_prime" %>
+<%= render "search_twins_prime" %>
+</div>
 
-<% if @search_range.present? %>
-  <h4 align="center">
-    <%= params[:prime_number_from] %>〜<%= params[:prime_number_to] %>の中の素数たち
-    <p>素数の合計：<%= number_with_delimiter(@search_range).count %></p>
-  </h4>
-<% end %>
-
-  <table width="80%" >
-    <% @search_range.each do |num| %>
-      <td width="100px" style="float: left;">
-      <div class="prime"><%= num["prime_number"] %></div>
-      </td>
-    <% end %>
-  </table>
-  <br>
-
-  <% if @search_twins_range.present? %>
-    <h4 align="center">
-    <%= params[:twins_prime_number_from] %>〜<%= params[:twins_prime_number_to] %>の中の素数たち
-    <p>双子素数の組の合計：<%= number_with_delimiter(@search_twins_range.count) %></p>
-    </h4>
-  <% end %>
-
-  <table width="80%" >
-    <% @search_twins_range.each do |num| %>
-      <td width="100px" style="float: left;">
-      <div class="prime"><%= num.flatten.first %></div>
-      </td>
-      <td width="100px" style="float: left;">
-      <div class="prime" style="color: blue;"><%= num.flatten.last %></div>
-      </td>
-    <% end %>
-  </table>
+<hr>

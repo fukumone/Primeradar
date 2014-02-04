@@ -1,0 +1,17 @@
+development:
+  encoding: unicode
+  adapter: postgresql
+  username: root
+  port: 5432
+  host: localhost
+  database: prime_development
+  password:
+
+test:
+  encoding: unicode
+  adapter: postgresql
+  username: root
+  port: 5432
+  host: localhost
+  database: prime_test
+  password:

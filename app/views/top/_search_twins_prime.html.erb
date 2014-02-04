@@ -1,0 +1,28 @@
+双子素数検索
+
+<%= form_tag [ :search_twins_prime, :top, :index ], method: :get do %>
+  <%= text_field_tag :twins_prime_number_from, "",maxlength: 6 %> 〜
+  <%= text_field_tag :twins_prime_number_to, "", maxlength: 6 %>
+  <%= hidden_field_tag :prime_number, params[:prime_number] %>
+  <%= submit_tag "検索" %>
+<% end %>
+
+  隣り合う素数の差が２の素数の組を検索します。
+
+<% if @search_twins_range.present? %>
+<h4 align="center">
+<%= params[:twins_prime_number_from] %>〜<%= params[:twins_prime_number_to] %>の中の素数たち
+<p>双子素数の組の合計：<%= number_with_delimiter(@search_twins_range.count) %></p>
+</h4>
+
+<table width="80%" >
+  <% @search_twins_range.each do |num| %>
+    <td width="100px" style="float: left;">
+    <div class="prime"><%= num.flatten.first %></div>
+    </td>
+    <td width="100px" style="float: left;">
+    <div class="prime" style="color: blue;"><%= num.flatten.last %></div>
+    </td>
+  <% end %>
+</table>
+<% end %>

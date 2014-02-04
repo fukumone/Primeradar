@@ -1,0 +1,32 @@
+<%= form_tag [ :search_prime, :top, :index ], method: :get do %>
+<br>
+  範囲検索
+  <%= text_field_tag :prime_number_from, "", maxlength: 6 %> 〜
+  <%= text_field_tag :prime_number_to, "", maxlength: 6 %>
+  <%= hidden_field_tag :prime_number, params[:prime_number] %>
+  <%= submit_tag "検索" %>
+
+  <br>
+  <br>
+
+  範囲検索の場合、ケタ数が多くなると検索時間が遅くなります。
+
+<% end %>
+
+<% if @search_range.present? %>
+
+  <h4 align="center">
+    <%= params[:prime_number_from] %>〜<%= params[:prime_number_to] %>の中の素数たち
+    <p>素数の合計：<%= number_with_delimiter(@search_range).count %></p>
+  </h4>
+
+  <table width="80%" >
+    <% @search_range.each do |num| %>
+      <td width="100px" style="float: left;">
+      <div class="prime"><%= num["prime_number"] %></div>
+      </td>
+    <% end %>
+  </table>
+  <br>
+
+<% end %>
