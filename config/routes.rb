@@ -16,6 +16,7 @@ Hiyiyi::Application.routes.draw do
       get :largest_prime
       get :prime_triplet
       get :prime_quadruplet
+      get :mersenne_number
     end
   end
 end

@@ -29,4 +29,7 @@ class PrimeController < ApplicationController
     flash.now.alert  = @search_form.errors.full_messages.join('<br />').html_safe
     end
   end
+
+  def mersenne_number
+  end
 end

@@ -1,3 +1,4 @@
+<div style="margin: 50px;">
 <p>
   三つ子素数（みつごそすう、prime triplet）もしくは三つ組素数とは、(p, p + 2, p + 6) または (p, p + 4, p + 6) の形をした、素数の三つ組のこと
 </p>
@@ -17,7 +18,7 @@
 <% end %>
 
 <% if @search_prime_triplet.present? %>
-<h4 align="center">
+<h4 style="text-align: center;">
 <%= params[:prime_triplet_from] %>〜<%= params[:prime_triplet_to] %>の中の素数たち
 <p>三つ子素数の合計：<%= number_with_delimiter(@search_prime_triplet.count) %></p>
 </h4>
@@ -35,3 +36,4 @@
 </table>
 <% end %>
 
+</div>

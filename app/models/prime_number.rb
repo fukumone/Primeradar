@@ -53,11 +53,16 @@ class PrimeNumber < ActiveRecord::Base
         params[:prime_quadruplet_from], params[:prime_quadruplet_to])
       arr.map(&:prime_number).each_cons(4).select{ |a, b, c, d| (b - a == 2 && c - a == 6 && d - a == 8) }
     end
+
+    ### メルセンヌ数検索　###
+    def search_mersenne_number
+
+    end
   end
 
 end
 
-array = []
-arr = PrimeNumber.where("? <= prime_number and prime_number <= ?" ,1,10000)
- arr.map(&:prime_number).each_cons(4).select{ |a, b, c, d| (b - a == 2 && c - a == 6 && d - a == 8) }
-array.last
+# array = []
+# arr = PrimeNumber.where("? <= prime_number and prime_number <= ?" ,1,10000)
+#  arr.map(&:prime_number).each_cons(4).select{ |a, b, c, d| (b - a == 2 && c - a == 6 && d - a == 8) }
+# array.last
