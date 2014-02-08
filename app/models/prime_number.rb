@@ -57,5 +57,7 @@ class PrimeNumber < ActiveRecord::Base
 
 end
 
-# a = PrimeNumber.where("? <= prime_number and prime_number <= ?" ,1,10000)
- # a.map(&:prime_number).each_cons(2)
+array = []
+arr = PrimeNumber.where("? <= prime_number and prime_number <= ?" ,1,10000)
+ arr.map(&:prime_number).each_cons(4).select{ |a, b, c, d| (b - a == 2 && c - a == 6 && d - a == 8) }
+array.last
