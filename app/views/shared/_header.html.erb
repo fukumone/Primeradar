@@ -1,4 +1,17 @@
 <div style="text-align: center;">
   <h1><%= link_to "素数レーダー", :root, style: "text-decoration: none; color: black;" %></h1>
 </div>
-<hr>
+
+<nav class="page_nav">
+<div class="page-nav-container">
+<ul>
+  <li>
+    <%= link_to "トップページ", :root , class: "current" %>
+    <%= link_to "素数について", [ :introduction_prime, :prime_index ], class: "current" %>
+    <%= link_to "素数の歴史", [ :history_prime, :prime_index ], class: "current" %>
+    <%= link_to "双子素数", [ :twins_prime, :prime_index ], class: "current" %>
+    <%= link_to "世界最大の素数???", [ :largest_prime, :prime_index ], class: "current" %>
+  </li>
+</ul>
+</div>
+</nav>
