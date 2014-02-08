@@ -39,6 +39,14 @@ class PrimeNumber < ActiveRecord::Base
 
       arr.map(&:prime_number).each_cons(2).select{ |b, r| (r - b) == 2}
     end
+
+    ### 三つ子素数検索　###
+    def search_prime_triplet(params)
+    end
+
+    ### 四つ子素数検索　###
+    def search_prime_quadruplet(params)
+    end
   end
 
 end

@@ -14,6 +14,8 @@ Hiyiyi::Application.routes.draw do
       get :history_prime
       get :twins_prime
       get :largest_prime
+      get :prime_triplet
+      get :prime_quadruplet
     end
   end
 end

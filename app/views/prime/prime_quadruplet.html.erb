@@ -1,0 +1,17 @@
+<p>
+  四つ子素数（よつごそすう、prime quadruplet）とは、p, p+2, p+6, p+8 がすべて素数であるような数の組をいう
+</p>
+
+<div class="error">
+  <p>
+    <%= flash.alert %>
+  </p>
+</div>
+
+<%= form_tag [ :prime_quadruplet, :prime_index ], method: :get do %>
+<br>
+  四つ子素数 検索
+  <%= text_field_tag :prime_quadruplet_from, "",maxlength: 6 %> 〜
+  <%= text_field_tag :prime_quadruplet_to, "", maxlength: 6 %>
+  <%= submit_tag "検索" %>
+<% end %>
