@@ -15,3 +15,21 @@
   <%= text_field_tag :prime_quadruplet_to, "", maxlength: 6 %>
   <%= submit_tag "検索" %>
 <% end %>
+
+<% if @search_prime_quadruplet.present? %>
+<h4 align="center">
+<%= params[:twins_prime_number_from] %>〜<%= params[:twins_prime_number_to] %>の中の素数たち
+<p>四つ子素数の合計：<%= number_with_delimiter(@search_prime_quadruplet.count) %></p>
+</h4>
+
+<table width="80%" >
+  <% @search_prime_quadruplet.each do |num| %>
+    <td width="100px" style="float: left;">
+    <div class="prime"><%= num.flatten.first %></div>
+    </td>
+    <td width="100px" style="float: left;">
+    <div class="prime" style="color: blue;"><%= num.flatten.last %></div>
+    </td>
+  <% end %>
+</table>
+<% end %>
