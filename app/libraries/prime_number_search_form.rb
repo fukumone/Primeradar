@@ -6,7 +6,7 @@ class PrimeNumberSearchForm
 
   validate do
     case
-      when prime_number.match(/\D/)
+      when prime_number && prime_number.match(/\D/)
         errors.add(:base, '「素数検索」はすべて数字で入力してください。')
     end
     case

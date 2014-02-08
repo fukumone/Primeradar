@@ -1,7 +1,4 @@
 class TopController < ApplicationController
-  # before_action :check_prime_number
-  # before_action :range_number
-  # before_action :twins_range_number
 
   def index
     @search_form = PrimeNumberSearchForm.new(params)

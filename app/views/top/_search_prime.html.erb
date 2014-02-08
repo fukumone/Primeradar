@@ -3,7 +3,6 @@
   範囲検索
   <%= text_field_tag :prime_number_from, "", maxlength: 6 %> 〜
   <%= text_field_tag :prime_number_to, "", maxlength: 6 %>
-  <%= hidden_field_tag :prime_number, params[:prime_number] %>
   <%= submit_tag "検索" %>
 
   <br>
@@ -13,8 +12,7 @@
 
 <% end %>
 
-<% if @search_range.kind_of?(Hash) && @error_range.blank? %>
-
+<% if @search_range.present? %>
   <h4 align="center">
     <%= params[:prime_number_from] %>〜<%= params[:prime_number_to] %>の中の素数たち
     <p>素数の合計：<%= number_with_delimiter(@search_range).count %></p>
@@ -28,8 +26,4 @@
     <% end %>
   </table>
   <br>
-<% end %>
-
-<% if @error_range.present?  %>
-  <%= @error_range %>
 <% end %>

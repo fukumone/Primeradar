@@ -3,7 +3,6 @@
   双子素数検索
   <%= text_field_tag :twins_prime_number_from, "",maxlength: 6 %> 〜
   <%= text_field_tag :twins_prime_number_to, "", maxlength: 6 %>
-  <%= hidden_field_tag :prime_number, params[:prime_number] %>
   <%= submit_tag "検索" %>
 <% end %>
 
@@ -12,7 +11,7 @@
 
   隣り合う素数の差が２の素数の組を検索します。
 
-<% if @error_twins.blank? %>
+<% if @search_twins_range.present? %>
 <h4 align="center">
 <%= params[:twins_prime_number_from] %>〜<%= params[:twins_prime_number_to] %>の中の素数たち
 <p>双子素数の組の合計：<%= number_with_delimiter(@search_twins_range.count) %></p>
@@ -28,9 +27,4 @@
     </td>
   <% end %>
 </table>
-
-<% end %>
-
-<% if @error_twins.present? %>
-<%= @error_twins %>
 <% end %>
