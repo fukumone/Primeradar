@@ -1,5 +1,15 @@
-<hr>
 <div style="text-align: center;">
   <h1><%= link_to "素数レーダー", :root, style: "text-decoration: none; color: black;" %></h1>
 </div>
-<hr>
+
+<nav class="page_nav">
+<div class="page-nav-container">
+<ul>
+<% 8.times do |time| %>
+  <li>
+    <%= link_to "Prime", "/" , class: "current" %>
+  </li>
+<% end %>
+</ul>
+</div>
+</nav>

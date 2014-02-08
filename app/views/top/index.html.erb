@@ -1,8 +1,32 @@
 <br>
 <div id="number_center">
-<%= render "search" %>
+
+<br>
+<div class="error">
+  <%= flash.alert %>
+</div>
+<br>
+
+<%= form_tag :root, method: :get do %>
+  <%= label_tag :prime_number, "素数検索" %>
+  <%= text_field_tag :prime_number, "", maxlength: 20 %>
+  <%= submit_tag "検索" %>
+<% end %>
+ダイレクトに素数を検索する、桁数は今現在確認した段階では10の20乗までは動きます。<br>
+つまり、1000兆の10万倍までです。
+<br>
+<br>
+  <% if @prime.present? %>
+    <%= "#{number_with_delimiter(@prime)}は素数です" if prime_number(@prime) %>
+    <%= "#{number_with_delimiter(@prime)}は素数ではありません" if composite_number(@prime) %>
+  <% end %>
+
 <%= render "search_prime" %>
-<%= render "search_twins_prime" %>
+<br>
+<% unless params[:prime_number_from].present? || params[:prime_number_to].present? %>
+  <%= render "search_twins_prime" %>
+<% end %>
+
 </div>
 
 <hr>

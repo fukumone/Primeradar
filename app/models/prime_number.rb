@@ -28,46 +28,16 @@ class PrimeNumber < ActiveRecord::Base
 
     ### 素数検索 ###
     def search_range_prime(params)
-      error = search_error_range_prime(params)
-      if error.present?
-        return error
-      else
-        PrimeNumber.where("? <= prime_number and prime_number <= ?" ,
-          params[:prime_number_from], params[:prime_number_to])
-      end
+      PrimeNumber.where("? <= prime_number and prime_number <= ?" ,
+        params[:prime_number_from], params[:prime_number_to])
     end
 
     ### 双子素数検索 ###
     def search_twins_range_prime(params)
-      error = search_error_twins_range_prime(params)
-      if error.present?
-        return error
-      else
-        arr = PrimeNumber.where("? <= prime_number and prime_number <= ?" ,
-          params[:twins_prime_number_from], params[:twins_prime_number_to])
+      arr = PrimeNumber.where("? <= prime_number and prime_number <= ?" ,
+        params[:twins_prime_number_from], params[:twins_prime_number_to])
 
-        arr.map(&:prime_number).each_cons(2).select{ |b, r| (r - b) == 2}
-      end
-    end
-
-    private
-
-    def search_error_range_prime(params)
-      error = {}
-      if params[:prime_number_from].present? || params[:prime_number_to].present?
-        unless params[:prime_number_from] =~ /\A[0-9]+\z/ || params[:prime_number_to] =~ /\A[0-9]+\z/
-          error[:only_integer_range] = "※半角数字で記入してください"
-        end
-      end
-    end
-
-    def search_error_twins_range_prime(params)
-      error = {}
-      if params[:twins_prime_number_from].present? || params[:twins_prime_number_to].present?
-        unless params[:twins_prime_number_from] =~ /\A[0-9]+\z/ || params[:twins_prime_number_to] =~ /\A[0-9]+\z/
-           error[:only_integer_twins_range] = "※半角数字で記入してください"
-        end
-      end
+      arr.map(&:prime_number).each_cons(2).select{ |b, r| (r - b) == 2}
     end
   end
 

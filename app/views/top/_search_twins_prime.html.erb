@@ -1,11 +1,14 @@
-双子素数検索
-
 <%= form_tag [ :search_twins_prime, :top, :index ], method: :get do %>
+<br>
+  双子素数検索
   <%= text_field_tag :twins_prime_number_from, "",maxlength: 6 %> 〜
   <%= text_field_tag :twins_prime_number_to, "", maxlength: 6 %>
   <%= hidden_field_tag :prime_number, params[:prime_number] %>
   <%= submit_tag "検索" %>
 <% end %>
+
+  <br>
+  <br>
 
   隣り合う素数の差が２の素数の組を検索します。
 
