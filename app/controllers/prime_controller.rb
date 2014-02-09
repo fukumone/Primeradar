@@ -31,5 +31,14 @@ class PrimeController < ApplicationController
   end
 
   def mersenne_number
+    @search_form = PrimeNumberSearchForm.new(params)
+    if @search_form.invalid?
+      flash.now.alert  = @search_form.errors.full_messages.join('<br />').html_safe
+    end
   end
 end
+
+# require 'open-uri'
+# open("http://www.yahoo.co.jp/"){|f|
+# print f.read
+# }

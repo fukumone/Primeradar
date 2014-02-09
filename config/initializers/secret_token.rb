@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Hiyiyi::Application.config.secret_key_base = 'aa102f28e8cf43a145ceb6f116eb137dc18e371d71cfc889bcc3fece0ac5a145186f43e436991d9e85b50062c28289ebe41b9f3cda0c8808022bd92069272781'
+Primeradar::Application.config.secret_key_base = 'aa102f28e8cf43a145ceb6f116eb137dc18e371d71cfc889bcc3fece0ac5a145186f43e436991d9e85b50062c28289ebe41b9f3cda0c8808022bd92069272781'

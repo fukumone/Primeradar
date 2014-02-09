@@ -14,19 +14,24 @@ gem 'google-analytics-rails'
 gem 'parallel'
 gem 'activerecord-import'
 
+gem 'nokogiri'
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
 end
 
 group :development, :test do
-    gem 'mysql2'
-    gem 'annotate', :git => 'git://github.com/ctran/annotate_models.git'
-    gem 'spring'
+  gem 'mysql2'
+  gem 'annotate', :git => 'git://github.com/ctran/annotate_models.git'
+  gem 'spring'
+  gem 'awesome_print'
+  gem 'quiet_assets'
+  gem 'rails-flog', :require => "flog"
 end
 
 group :production do
-    gem 'pg'
+  gem 'pg'
 end
 
 # Use ActiveModel has_secure_password

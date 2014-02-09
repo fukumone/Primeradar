@@ -4,7 +4,8 @@ class PrimeNumberSearchForm
   attr_accessor :prime_number,:prime_number_from, :prime_number_to,
                 :twins_prime_number_from, :twins_prime_number_to,
                 :prime_triplet_from, :prime_triplet_to,
-                :prime_quadruplet_from, :prime_quadruplet_to
+                :prime_quadruplet_from, :prime_quadruplet_to,
+                :mersenne_number
 
   validate do
     case # single 素数validation
@@ -42,6 +43,11 @@ class PrimeNumberSearchForm
         errors.add(:base, '「四つ子素数検索」において数字の順序が反対です。')
       when prime_quadruplet_from.present? && prime_quadruplet_to.blank?
         errors.add(:base, '「四つ子素数検索」において範囲の終わりを入力して下さい')
+    end
+
+    case #メルセンヌ数validation
+      when mersenne_number && mersenne_number.match(/\D/)
+        errors.add(:base, '「メルセンヌ数 検索」はすべて数字で入力してください。')
     end
   end
 
