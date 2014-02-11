@@ -54,10 +54,6 @@ class PrimeNumber < ActiveRecord::Base
       arr.map(&:prime_number).each_cons(4).select{ |a, b, c, d| (b - a == 2 && c - a == 6 && d - a == 8) }
     end
 
-    ### メルセンヌ数検索　###
-    def search_mersenne_number
-
-    end
   end
 
 end

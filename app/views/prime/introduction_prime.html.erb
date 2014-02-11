@@ -1,1 +1,33 @@
-<p>素数とは、1 と自分自身以外に正の約数を持たない自然数で、1 でない数のことである。</p>
+<div style="margin: 50px;">
+<p>
+  素数とは、1 と自分自身以外に正の約数を持たない自然数で、1 でない数のことである。
+</p>
+<p>
+  １自身を除くすべての自然数は素数と合成数に分ける事ができる。
+  素数は数の原子と呼ばれていて、今日の自分たちの生活になくてはならない必須の数である。
+</p>
+
+<p>
+  素数を判定するアルゴリズム
+</p>
+<ul>
+  <li>エラトステネスの篩</li>
+  <li>最大公約数</li>
+  <li>Millerテスト</li>
+</ul>
+
+<%#= markdown("def prime_number(n)
+                    if n.class == Fixnum
+                      sqrt = Math.sqrt(n)
+                      factor_number = (2..sqrt).any? { |num| n % num == 0 }
+                      unless factor_number
+                        puts n
+                      else
+                        puts "素数ではありません"
+                      end
+                    else
+                      puts "数字で入力して下さい"
+                    end
+                  end") %>
+
+</div>

@@ -13,7 +13,7 @@ gem 'kaminari'
 gem 'google-analytics-rails'
 gem 'parallel'
 gem 'activerecord-import'
-
+gem 'redcarpet'
 gem 'nokogiri'
 
 group :doc do
