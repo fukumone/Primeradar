@@ -13,34 +13,36 @@ class PrimeNumber < ActiveRecord::Base
   class << self
 
     ### SQLを使った検索 ###
-    # def search_range_prime(params)
-    #   results = ActiveRecord::Base.connection.execute("SELECT prime_number FROM prime_numbers WHERE
-    #     (#{params[:prime_number_from].to_i} < prime_number and prime_number < #{params[:prime_number_to].to_i})")
-    #   results.to_a(:as => :hash)
-    # end
+      ### 素数検索 ###
+    def search_range_prime(prime_number_from, prime_number_to)
+      results = ActiveRecord::Base.connection.execute("SELECT prime_number FROM prime_numbers WHERE
+        (#{prime_number_from.to_i} < prime_number and prime_number < #{prime_number_to.to_i})")
+      results.to_a(:as => :hash)
+    end
 
     ### SQLを使った検索 ###
-    # def search_twins_range_prime(params)
-    #   results = ActiveRecord::Base.connection.execute("SELECT prime_number FROM prime_numbers WHERE
-    #     (#{params[:twins_prime_number_from].to_i} < prime_number and prime_number < #{params[:twins_prime_number_to].to_i})")
-    #   results.each_cons(2).select{ |b, r| (r.last - b.first) == 2}
-    # end
+      ### 双子素数検索 ###
+    def search_twins_range_prime(twins_prime_number_from, twins_prime_number_to)
+      results = ActiveRecord::Base.connection.execute("SELECT prime_number FROM prime_numbers WHERE
+        (#{twins_prime_number_from.to_i} < prime_number and prime_number < #{twins_prime_number_to.to_i})")
+      results.each_cons(2).select{ |b, r| (r.last - b.first) == 2}
+    end
 
     ### 素数検索 ###
-    def search_range_prime(prime_number_from, prime_number_to)
-      prime_number_from = '1' if prime_number_from = ""
-      PrimeNumber.where("? <= prime_number and prime_number <= ?" ,
-        prime_number_from, prime_number_to)
-    end
+    # def search_range_prime(prime_number_from, prime_number_to)
+    #   prime_number_from = '1' if prime_number_from = ""
+    #   PrimeNumber.where("? <= prime_number and prime_number <= ?" ,
+    #     prime_number_from, prime_number_to)
+    # end
 
     ### 双子素数検索 ###
-    def search_twins_range_prime(twins_prime_number_from, twins_prime_number_to)
-      twins_prime_number_from = '1' if twins_prime_number_from = ""
-      arr = PrimeNumber.where("? <= prime_number and prime_number <= ?" ,
-        twins_prime_number_from, twins_prime_number_to)
+    # def search_twins_range_prime(twins_prime_number_from, twins_prime_number_to)
+    #   twins_prime_number_from = '1' if twins_prime_number_from = ""
+    #   arr = PrimeNumber.where("? <= prime_number and prime_number <= ?" ,
+    #     twins_prime_number_from, twins_prime_number_to)
 
-      arr.map(&:prime_number).each_cons(2).select{ |b, r| (r - b) == 2}
-    end
+    #   arr.map(&:prime_number).each_cons(2).select{ |b, r| (r - b) == 2}
+    # end
 
     ### 三つ子素数検索　###
     def search_prime_triplet(prime_triplet_from, prime_triplet_to)
