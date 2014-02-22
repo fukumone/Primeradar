@@ -1,7 +1,7 @@
 Primeradar::Application.routes.draw do
   root 'top#index'
 
-  resources :top do
+  resources :top, only: [] do
     collection do
       get :search_prime
       get :search_twins_prime
@@ -17,6 +17,7 @@ Primeradar::Application.routes.draw do
       get :prime_triplet
       get :prime_quadruplet
       get :mersenne_number
+      get :goldbachs_conjecture
     end
   end
 end

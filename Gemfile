@@ -1,14 +1,14 @@
 source 'https://rubygems.org'
 ruby '2.1.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.2'
-gem 'sass-rails', '~> 4.0.0'
-gem 'uglifier', '>= 1.3.0'
-gem 'coffee-rails', '~> 4.0.0'
+gem 'rails', '4.1.0.rc1'
+gem 'sass-rails'
+gem 'uglifier'
+gem 'coffee-rails'
 gem 'therubyracer', platforms: :ruby
 gem 'jquery-rails'
 gem 'turbolinks'
-gem 'jbuilder', '~> 1.2'
+gem 'jbuilder'
 gem 'kaminari'
 gem 'google-analytics-rails'
 gem 'parallel'
@@ -27,7 +27,15 @@ group :development, :test do
   gem 'spring'
   gem 'awesome_print'
   gem 'quiet_assets'
-  gem 'rails-flog', :require => "flog"
+end
+
+group :test do
+  gem 'rspec'
+  gem 'rspec-rails'
+  gem 'rspec-given'
+  gem 'factory_girl_rails'
+  gem 'capybara'
+  gem 'launchy'
 end
 
 group :production do

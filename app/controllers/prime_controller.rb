@@ -15,7 +15,7 @@ class PrimeController < ApplicationController
   def prime_triplet
     @search_form = PrimeNumberSearchForm.new(params)
     if @search_form.valid?
-      @search_prime_triplet = PrimeNumber.search_prime_triplet(params)
+      @search_prime_triplet = PrimeNumber.search_prime_triplet(params[:prime_triplet_from], params[:prime_triplet_to])
     else
       flash.now.alert  = @search_form.errors.full_messages.join('<br />').html_safe
     end
@@ -24,21 +24,16 @@ class PrimeController < ApplicationController
   def prime_quadruplet
     @search_form = PrimeNumberSearchForm.new(params)
     if @search_form.valid?
-      @search_prime_quadruplet = PrimeNumber.search_prime_quadruplet(params)
+      @search_prime_quadruplet = PrimeNumber.search_prime_quadruplet(params[:prime_quadruplet_from], params[:prime_quadruplet_to])
     else
     flash.now.alert  = @search_form.errors.full_messages.join('<br />').html_safe
     end
   end
 
   def mersenne_number
-    @search_form = PrimeNumberSearchForm.new(params)
-    if @search_form.invalid?
-      flash.now.alert  = @search_form.errors.full_messages.join('<br />').html_safe
-    end
   end
-end
 
-# require 'open-uri'
-# open("http://www.yahoo.co.jp/"){|f|
-# print f.read
-# }
+  def goldbachs_conjecture
+  end
+
+end

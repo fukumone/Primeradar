@@ -27,33 +27,40 @@ class PrimeNumber < ActiveRecord::Base
     # end
 
     ### 素数検索 ###
-    def search_range_prime(params)
+    def search_range_prime(prime_number_from, prime_number_to)
+      prime_number_from = '1' if prime_number_from = ""
       PrimeNumber.where("? <= prime_number and prime_number <= ?" ,
-        params[:prime_number_from], params[:prime_number_to])
+        prime_number_from, prime_number_to)
     end
 
     ### 双子素数検索 ###
-    def search_twins_range_prime(params)
+    def search_twins_range_prime(twins_prime_number_from, twins_prime_number_to)
+      twins_prime_number_from = '1' if twins_prime_number_from = ""
       arr = PrimeNumber.where("? <= prime_number and prime_number <= ?" ,
-        params[:twins_prime_number_from], params[:twins_prime_number_to])
+        twins_prime_number_from, twins_prime_number_to)
 
       arr.map(&:prime_number).each_cons(2).select{ |b, r| (r - b) == 2}
     end
 
     ### 三つ子素数検索　###
-    def search_prime_triplet(params)
+    def search_prime_triplet(prime_triplet_from, prime_triplet_to)
+      prime_triplet_from = '1' if prime_triplet_from = ""
       arr = PrimeNumber.where("? <= prime_number and prime_number <= ?" ,
-        params[:prime_triplet_from], params[:prime_triplet_to])
+        prime_triplet_from, prime_triplet_to)
       arr.map(&:prime_number).each_cons(3).select{ |a, b, c| (b - a == 2 && c - a == 6) || (b - a == 4 && c - a == 6) }
     end
 
     ### 四つ子素数検索　###
-    def search_prime_quadruplet(params)
+    def search_prime_quadruplet(prime_quadruplet_from, prime_quadruplet_to)
+      prime_quadruplet_from = '1' if prime_quadruplet_from = ""
       arr = PrimeNumber.where("? <= prime_number and prime_number <= ?" ,
-        params[:prime_quadruplet_from], params[:prime_quadruplet_to])
+        prime_quadruplet_from, prime_quadruplet_to)
       arr.map(&:prime_number).each_cons(4).select{ |a, b, c, d| (b - a == 2 && c - a == 6 && d - a == 8) }
     end
 
+    def search_goldbachs_conjecture(params)
+
+    end
   end
 
 end
