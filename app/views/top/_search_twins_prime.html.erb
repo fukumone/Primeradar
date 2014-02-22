@@ -13,7 +13,7 @@
 
 <% if @search_twins_range.present? %>
 <h4 align="center">
-<%= params[:twins_prime_number_from].present? ? params[:twins_prime_number_from] : 1 %>〜<%= params[:twins_prime_number_to] %>の中の双子素数たち
+<%= params[:twins_prime_number_from].present? ? number_with_delimiter(params[:twins_prime_number_from].to_i) : 1 %>〜<%= number_with_delimiter(params[:twins_prime_number_to].to_i) %>の中の双子素数たち
 <p>双子素数の組の合計：<%= number_with_delimiter(@search_twins_range.total_count) %></p>
 </h4>
 
