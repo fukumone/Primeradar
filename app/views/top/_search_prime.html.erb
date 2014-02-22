@@ -14,9 +14,12 @@
 
 <% if @search_range.present? %>
   <h4 align="center">
-    <%= params[:prime_number_from] %>〜<%= params[:prime_number_to] %>の中の素数たち
-    <p>素数の合計：<%= number_with_delimiter(@search_range).count %></p>
+  <%= params[:prime_number_from].present? ? params[:prime_number_from] : 1 %>〜<%= params[:prime_number_to] %>の中の素数たち
+    <p>素数の合計：<%= number_with_delimiter(@search_range).total_count  %></p>
   </h4>
+
+  <%= paginate @search_range %>
+  <br>
 
   <table width="80%" >
     <% @search_range.each do |num| %>

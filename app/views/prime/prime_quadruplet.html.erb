@@ -20,9 +20,13 @@
 
 <% if @search_prime_quadruplet.present? %>
 <h4 style="text-align: center;">
-<%= params[:prime_quadruplet_from] %>〜<%= params[:prime_quadruplet_to] %>の中の素数たち
-<p>四つ子素数の合計：<%= number_with_delimiter(@search_prime_quadruplet.count) %></p>
+
+<%= params[:prime_quadruplet_from].present? ? params[:prime_quadruplet_from] : 1 %>〜<%= params[:prime_quadruplet_to] %>の中の四つ子素数たち
+<p>四つ子素数の合計：<%= number_with_delimiter(@search_prime_quadruplet.total_count) %></p>
 </h4>
+
+<%= paginate @search_prime_quadruplet %>
+<br>
 
 <table width="30%">
 <% @search_prime_quadruplet.each do |num| %>

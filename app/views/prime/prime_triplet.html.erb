@@ -19,9 +19,12 @@
 
 <% if @search_prime_triplet.present? %>
 <h4 style="text-align: center;">
-<%= params[:prime_triplet_from] %>〜<%= params[:prime_triplet_to] %>の中の素数たち
-<p>三つ子素数の合計：<%= number_with_delimiter(@search_prime_triplet.count) %></p>
+<%= params[:prime_triplet_from].present? ? params[:prime_triplet_from] : 1 %>〜<%= params[:prime_triplet_to] %>の中の三つ子素数たち
+<p>三つ子素数の合計：<%= number_with_delimiter(@search_prime_triplet.total_count) %></p>
 </h4>
+
+<%= paginate @search_prime_triplet %>
+<br>
 
 <table width="30%">
 <% @search_prime_triplet.each do |num| %>

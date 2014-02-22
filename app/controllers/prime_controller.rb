@@ -16,6 +16,7 @@ class PrimeController < ApplicationController
     @search_form = PrimeNumberSearchForm.new(params)
     if @search_form.valid?
       @search_prime_triplet = PrimeNumber.search_prime_triplet(params[:prime_triplet_from], params[:prime_triplet_to])
+      @search_prime_triplet = Kaminari.paginate_array(@search_prime_triplet).page(params[:page]).per(500)
     else
       flash.now.alert  = @search_form.errors.full_messages.join('<br />').html_safe
     end
@@ -25,6 +26,7 @@ class PrimeController < ApplicationController
     @search_form = PrimeNumberSearchForm.new(params)
     if @search_form.valid?
       @search_prime_quadruplet = PrimeNumber.search_prime_quadruplet(params[:prime_quadruplet_from], params[:prime_quadruplet_to])
+      @search_prime_quadruplet = Kaminari.paginate_array(@search_prime_quadruplet).page(params[:page]).per(500)
     else
     flash.now.alert  = @search_form.errors.full_messages.join('<br />').html_safe
     end
