@@ -25,7 +25,7 @@ class PrimeNumberSearchForm
       when (prime_number_from.present? && prime_number_to.present?) && prime_number_to < prime_number_from
         errors.add(:base, '素数検索数字の順序が反対です。')
       when prime_number_from.present? && prime_number_to.blank?
-        errors.add(:base, '「範囲検索」において範囲の終わりを入力して下さい')
+        errors.add(:base, '「範囲検索」において範囲の終わりを入力して下さい。')
     end
     case # 双子素数validation
       when twins_prime_number_from && twins_prime_number_from.match(/\D/) || twins_prime_number_to && twins_prime_number_to.match(/\D/)
