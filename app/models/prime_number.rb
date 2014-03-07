@@ -56,8 +56,20 @@ class PrimeNumber < ActiveRecord::Base
       arr.map(&:prime_number).each_cons(4).select{ |a, b, c, d| (b - a == 2 && c - a == 6 && d - a == 8) }
     end
 
-    def search_goldbachs_conjecture(params)
+    ### ゴールドバッハ予想検索 ###
+    def search_goldbachs_conjecture(goldbachs_conjecture_number)
+      prime_sum = 0
+      if goldbachs_conjecture_number.even?
+        arr = search_range_prime(prime_number_from=1, goldbachs_conjecture_number)
+        arr = arr.map(&:prime_number)
+        arr.each do |prime_number|
+          goldbachs_conjecture_number
+        end
+      end
+    end
 
+    ### フェルマーの小定理検索　###
+    def fermats_little_theorem_search(fermats_little_value)
     end
   end
 

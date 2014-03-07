@@ -38,4 +38,7 @@ class PrimeController < ApplicationController
   def goldbachs_conjecture
   end
 
+  def fermats_little_theorem
+  end
+
 end

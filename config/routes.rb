@@ -18,6 +18,7 @@ Primeradar::Application.routes.draw do
       get :prime_quadruplet
       get :mersenne_number
       get :goldbachs_conjecture
+      get :fermats_little_theorem
     end
   end
 end

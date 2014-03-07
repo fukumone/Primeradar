@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.1.0'
+ruby '2.1.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.0.rc1'
 gem 'sass-rails'
@@ -13,7 +13,6 @@ gem 'kaminari'
 gem 'google-analytics-rails'
 gem 'parallel'
 gem 'activerecord-import'
-gem 'redcarpet'
 gem 'nokogiri'
 
 group :doc do
