@@ -39,6 +39,7 @@ end
 
 group :production do
   gem 'mysql2'
+  gem 'activerecord-mysql-adapter'
 end
 
 # Use ActiveModel has_secure_password
