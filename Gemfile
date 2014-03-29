@@ -16,6 +16,7 @@ gem 'activerecord-import'
 gem 'nokogiri'
 gem 'mysql2'
 gem 'activerecord-mysql-adapter'
+gem 'ruby-mysql'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
