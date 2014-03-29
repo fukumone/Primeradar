@@ -14,6 +14,8 @@ gem 'google-analytics-rails'
 gem 'parallel'
 gem 'activerecord-import'
 gem 'nokogiri'
+gem 'mysql2'
+gem 'activerecord-mysql-adapter'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
@@ -21,7 +23,6 @@ group :doc do
 end
 
 group :development, :test do
-  gem 'mysql2'
   gem 'annotate', :git => 'git://github.com/ctran/annotate_models.git'
   gem 'spring'
   gem 'awesome_print'
@@ -35,11 +36,6 @@ group :test do
   gem 'factory_girl_rails'
   gem 'capybara'
   gem 'launchy'
-end
-
-group :production do
-  gem 'mysql2'
-  gem 'activerecord-mysql-adapter'
 end
 
 # Use ActiveModel has_secure_password
