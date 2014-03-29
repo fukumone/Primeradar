@@ -3,4 +3,4 @@
 知りたい素数はどこにあるか見つけるサイトです、
 本サイトはこちらです！
 
-http://primeradar.herokuapp.com/
+http://prime-radar.herokuapp.com/
