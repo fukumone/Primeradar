@@ -59,14 +59,23 @@ class PrimeNumber < ActiveRecord::Base
     ### ゴールドバッハ予想検索 ###
     def search_goldbachs_conjecture(goldbachs_conjecture_number)
       prime_sum = 0
-      if goldbachs_conjecture_number.even?
-        arr = search_range_prime(prime_number_from=1, goldbachs_conjecture_number)
-        arr = arr.map(&:prime_number)
-        arr.each do |prime_number|
-          goldbachs_conjecture_number
-        end
+      if goldbachs_conjecture_number.even? &&  2 < goldbachs_conjecture_number
+
+      else
+        raise "４以上の偶数を入力してください。"
       end
     end
+
+    ###コールドバッハアルゴリズムめも
+    # str = ""
+    # array = []
+    # a.each do |str|
+    #   array << str
+    #   p array
+    # end
+    # p array.join(",").gsub(",", "+")
+
+    #
 
     ### フェルマーの小定理検索　###
     def fermats_little_theorem_search(fermats_little_value)
