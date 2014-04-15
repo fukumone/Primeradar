@@ -1,22 +1,23 @@
-<div style="text-align: center;">
-  <h1><%= link_to "素数レーダー", :root, style: "text-decoration: none; color: black;" %></h1>
-</div>
+<header>
+  <h1><%= link_to "素数レーダー", :root %></h1>
+</header>
 
 <nav class="page_nav">
-<div class="page-nav-container">
-<ul>
-  <li>
-    <%= link_to "トップページ", :root , class: "current" %>
-    <%= link_to "素数について", [ :introduction_prime, :prime_index ], class: "current" %>
-    <%= link_to "素数の歴史", [ :history_prime, :prime_index ], class: "current" %>
-    <%#= link_to "双子素数", [ :twins_prime, :prime_index ], class: "current" %>
-    <%= link_to "三つ子素数検索", [ :prime_triplet, :prime_index ], class: "current" %>
-    <%= link_to "四つ子素数検索", [ :prime_quadruplet, :prime_index ], class: "current" %>
-    <%= link_to "世界最大の素数???", [ :largest_prime, :prime_index ], class: "current" %>
-    <%= link_to "メルセンヌ数", [ :mersenne_number, :prime_index ], class: "current" %>
-    <%#= link_to "フェルマーの小定理", [ :fermats_little_theorem, :prime_index ], class: "current" %>
-    <%#= link_to "ゴールドバッハ予想", [ :goldbachs_conjecture, :prime_index ], class: "current" %>
-  </li>
-</ul>
-</div>
+  <div class="page-nav-container">
+    <ul>
+      <li>
+        <%= link_to "トップページ", :root , class: "current" %>
+        <%= link_to "素数について", [ :introduction_prime, :prime_index ], class: "current" %>
+        <%= link_to "素数の歴史", [ :history_prime, :prime_index ], class: "current" %>
+        <%#= link_to "双子素数", [ :twins_prime, :prime_index ], class: "current" %>
+        <%= link_to "三つ子素数検索", [ :prime_triplet, :prime_index ], class: "current" %>
+        <%= link_to "四つ子素数検索", [ :prime_quadruplet, :prime_index ], class: "current" %>
+        <%= link_to "世界最大の素数???", [ :largest_prime, :prime_index ], class: "current" %>
+        <%= link_to "メルセンヌ数", [ :mersenne_number, :prime_index ], class: "current" %>
+        <%#= link_to "フェルマーの小定理", [ :fermats_little_theorem, :prime_index ], class: "current" %>
+        <%#= link_to "ゴールドバッハ予想", [ :goldbachs_conjecture, :prime_index ], class: "current" %>
+      </li>
+    </ul>
+  </div>
 </nav>
+
