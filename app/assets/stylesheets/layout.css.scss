@@ -34,45 +34,50 @@ footer {
   }
 }
 
-nav{
+nav {
   display: block;
   ul {
     margin: 0;
     padding: 10px 0px 9px 0px;
   }
 
-  .page-nav-container{
-  margin: 0 auto;
+  .page_nav {
+    text-align: center;
+    background: $green;
+    width: 100%;
+    padding-left: 16px;
+    font-size: 12px;
+    letter-spacing: 1px;
+  }
+
+  .page-nav-container {
+    margin: 0 auto;
+  }
+
+  a.current{
+    padding: 10px;
+    color: #333;
+    text-decoration: none;
+    font-family: "Gotham_SSm_4r",Helvetica,Arial,sans-serif;
+    margin-right: -5px;
+    padding: 10px 20px;
+  }
+
+  a:hover{
+    background: $gray;
+  }
+
+  ul li {
+    display: inline;
   }
 
 }
 
-.page_nav{
-  text-align: center;
-  background: $green;
-  width: 100%;
-  padding-left: 16px;
-  font-size: 12px;
-  letter-spacing: 1px;
-}
 
-a.current{
-  padding: 10px;
-  color: #333;
-  text-decoration: none;
-  font-family: "Gotham_SSm_4r",Helvetica,Arial,sans-serif;
-  margin-right: -5px;
-  padding: 10px 20px;
-}
 
-a:hover{
-  background: $gray;
-}
 
 a:-webkit-any-link{
 cursor: auto;
 }
 
-ul li {
-  display: inline;
-}
+

@@ -20,11 +20,12 @@
     <%= "#{number_with_delimiter(@prime)}は素数です" if prime_number(@prime) %>
     <%= "#{number_with_delimiter(@prime)}は素数ではありません" if composite_number(@prime) %>
   <% end %>
-
+<div style="height: 1500px;">
 <%= render "search_prime" %>
 <br>
 <% unless params[:prime_number_from].present? || params[:prime_number_to].present? %>
   <%= render "search_twins_prime" %>
 <% end %>
+</div>
 
 </div>
