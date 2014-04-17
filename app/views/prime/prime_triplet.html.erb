@@ -31,7 +31,7 @@
   <tr class="<%= cycle("odd", "even") %>">
   <td class="prime">
     <% num.each do |prime_number| %>
-    <%= prime_number %>
+    <%= number_with_delimiter(prime_number) %>
     <% end %>
   </td>
   </tr>

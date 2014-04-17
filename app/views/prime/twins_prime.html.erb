@@ -26,10 +26,10 @@
 <table width="80%" >
   <% @search_twins_range.each do |num| %>
     <td width="100px" style="float: left;">
-    <div class="prime"><%= num.flatten.first %></div>
+    <div class="prime"><%= number_with_delimiter(num.flatten.first) %></div>
     </td>
     <td width="100px" style="float: left;">
-    <div class="prime" style="color: blue;"><%= num.flatten.last %></div>
+    <div class="prime" style="color: blue;"><%= number_with_delimiter(num.flatten.last) %></div>
     </td>
   <% end %>
 </table>
