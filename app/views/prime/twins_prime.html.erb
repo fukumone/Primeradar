@@ -1,5 +1,38 @@
-<div style="margin: 50px;">
+<div style="margin-top: 50px; text-align: center;">
 
 <p>双子素数（ふたごそすう、twin prime）とは、差が 2 である2つの素数の組のこと。</p>
+
+<%= form_tag [ :twins_prime, :prime_index ], method: :get do %>
+<br>
+  <%= text_field_tag :twins_prime_number_from, "", maxlength: 6 %> 〜
+  <%= text_field_tag :twins_prime_number_to, "", maxlength: 6 %>
+  <%= submit_tag "検索" %>
+<% end %>
+
+<div class="error">
+  <%= flash.alert %>
+  <br>
+</div>
+
+<% if @search_twins_range.present? %>
+<h4 align="center">
+<%= params[:twins_prime_number_from].present? ? number_with_delimiter(params[:twins_prime_number_from].to_i) : 1 %>〜<%= number_with_delimiter(params[:twins_prime_number_to].to_i) %>の中の双子素数たち
+<p>双子素数の組の合計：<%= number_with_delimiter(@search_twins_range.total_count) %></p>
+</h4>
+
+<%= paginate @search_twins_range %>
+<br>
+
+<table width="80%" >
+  <% @search_twins_range.each do |num| %>
+    <td width="100px" style="float: left;">
+    <div class="prime"><%= num.flatten.first %></div>
+    </td>
+    <td width="100px" style="float: left;">
+    <div class="prime" style="color: blue;"><%= num.flatten.last %></div>
+    </td>
+  <% end %>
+</table>
+<% end %>
 
 </div>

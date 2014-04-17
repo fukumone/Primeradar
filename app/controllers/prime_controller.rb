@@ -7,6 +7,13 @@ class PrimeController < ApplicationController
   end
 
   def twins_prime
+    @search_form = PrimeNumberSearchForm.new(params)
+    if @search_form.valid?
+      @search_twins_range = PrimeNumber.search_twins_range_prime(params[:twins_prime_number_from], params[:twins_prime_number_to])
+      @search_twins_range = Kaminari.paginate_array(@search_twins_range).page(params[:page]).per(1000)
+    else
+      flash.now.alert  = @search_form.errors.full_messages.join('<br />').html_safe
+    end
   end
 
   def largest_prime
