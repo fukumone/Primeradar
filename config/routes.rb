@@ -21,4 +21,6 @@ Primeradar::Application.routes.draw do
       get :fermats_little_theorem
     end
   end
+
+  get '*anything' => 'top#routing_error'
 end
