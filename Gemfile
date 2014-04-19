@@ -17,6 +17,7 @@ gem 'activerecord-import'
 gem 'nokogiri'
 gem 'mysql2'
 gem 'kaminari'
+gem 'rails-i18n'
 
 group :development, :test do
   gem 'annotate', :git => 'git://github.com/ctran/annotate_models.git'

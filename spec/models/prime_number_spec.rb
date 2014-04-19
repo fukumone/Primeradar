@@ -20,4 +20,9 @@ describe 'PrimeNumberSearch' do
     p bb.count
   end
 
+  context '三つ子素数検索' do
+  end
+
+  context '四つ子素数検索' do
+  end
 end

@@ -1,0 +1,13 @@
+ja:
+  activemodel:
+    attributes:
+        prime_number_search_form:
+          prime_number: "素数"
+          prime_number_from: "素数"
+          prime_number_to: "素数"
+          twins_prime_number_from: "双子素数"
+          twins_prime_number_to: "双子素数"
+          prime_triplet_from: "三つ子素数"
+          prime_triplet_to: "三つ子素数"
+          prime_quadruplet_from: "四つ子素数"
+          prime_quadruplet_to: "四つ子素数"
