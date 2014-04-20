@@ -12,7 +12,7 @@ class PrimeController < ApplicationController
       @search_twins_range = PrimeNumber.search_twins_range_prime(params[:twins_prime_number_from], params[:twins_prime_number_to])
       @search_twins_range = Kaminari.paginate_array(@search_twins_range).page(params[:page]).per(1000)
     else
-      flash.now.alert  = @search_form.errors.full_messages.join('<br />').html_safe
+      flash.now.alert  = format_errors(@search_form)
     end
   end
 
@@ -24,7 +24,7 @@ class PrimeController < ApplicationController
       @search_prime_triplet = PrimeNumber.search_prime_triplet(params[:prime_triplet_from], params[:prime_triplet_to])
       @search_prime_triplet = Kaminari.paginate_array(@search_prime_triplet).page(params[:page]).per(500)
     else
-      flash.now.alert  = @search_form.errors.full_messages.join('<br />').html_safe
+      flash.now.alert  = format_errors(@search_form)
     end
   end
 
@@ -33,7 +33,7 @@ class PrimeController < ApplicationController
       @search_prime_quadruplet = PrimeNumber.search_prime_quadruplet(params[:prime_quadruplet_from], params[:prime_quadruplet_to])
       @search_prime_quadruplet = Kaminari.paginate_array(@search_prime_quadruplet).page(params[:page]).per(500)
     else
-    flash.now.alert  = @search_form.errors.full_messages.join('<br />').html_safe
+    flash.now.alert  = format_errors(@search_form)
     end
   end
 

@@ -7,7 +7,7 @@ class TopController < ApplicationController
         @prime = params[:prime_number].to_i
       end
     else
-      flash.now.alert  = @search_form.errors.full_messages.join('<br />').html_safe
+      flash.now.alert  = format_errors(@search_form)
       render "index"
     end
   end
@@ -18,7 +18,7 @@ class TopController < ApplicationController
       @search_range = Kaminari.paginate_array(@search_range).page(params[:page]).per(2000)
       render "index"
     else
-      flash.now.alert  = @search_form.errors.full_messages.join('<br />').html_safe
+      flash.now.alert  = format_errors(@search_form)
       render "index"
     end
   end
@@ -29,7 +29,7 @@ class TopController < ApplicationController
       @search_twins_range = Kaminari.paginate_array(@search_twins_range).page(params[:page]).per(1000)
       render "index"
     else
-      flash.now.alert  = @search_form.errors.full_messages.join('<br />').html_safe
+      flash.now.alert  = format_errors(@search_form)
       render "index"
     end
   end

@@ -1,23 +1,9 @@
-# module ErrorsHelper
-#   def check_prime_number
-#     @error = {}
-
-#     if params[:prime_number].present?
-#       box = params[:prime_number].split(" ")
-#       arr = []
-#       box.each do |box|
-#         arr << true unless box =~ /\A[0-9]+\z/
-#       end
-#       @error[:prime_number] = "※半角数字で記入してください" if arr.present?
-#     end
-
-#     if params[:prime_number_from].present? || params[:prime_number_to].present?
-#       box = [ "#{params[:prime_number_from]}" " " "#{params[:prime_number_to]}" ].join("").split(" ")
-#       arr = []
-#       box.each do |box|
-#         arr << true unless box =~ /\A[0-9]+\z/
-#       end
-#       @error[:prime_number_from] = "※半角数字で記入してください" if arr.present?
-#     end
-#   end
-# end
+module ErrorsHelper
+  def format_errors(obj)
+    if obj.errors.count == 1
+      obj.errors.full_messages.join('<br />').html_safe
+    elsif obj.errors.count > 1
+      obj.errors.full_messages.first.html_safe
+    end
+  end
+end
