@@ -1,7 +1,7 @@
 class TopController < ApplicationController
+  before_action :form
 
   def index
-    @search_form = PrimeNumberSearchForm.new(params)
     if @search_form.valid?
       if params[:prime_number].present?
         @prime = params[:prime_number].to_i
@@ -13,7 +13,6 @@ class TopController < ApplicationController
   end
 
   def search_prime
-    @search_form = PrimeNumberSearchForm.new(params)
     if @search_form.valid?
       @search_range = PrimeNumber.search_range_prime(params[:prime_number_from], params[:prime_number_to])
       @search_range = Kaminari.paginate_array(@search_range).page(params[:page]).per(2000)
@@ -25,7 +24,6 @@ class TopController < ApplicationController
   end
 
   def search_twins_prime
-    @search_form = PrimeNumberSearchForm.new(params)
     if @search_form.valid?
       @search_twins_range = PrimeNumber.search_twins_range_prime(params[:twins_prime_number_from], params[:twins_prime_number_to])
       @search_twins_range = Kaminari.paginate_array(@search_twins_range).page(params[:page]).per(1000)
