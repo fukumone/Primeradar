@@ -1,0 +1,26 @@
+Internal Server Error (Primeradar)
+--------------------------------------------------------------------------------
+
+DATE_TIME: <%= Time.now.to_s(:db) %>
+REMOTE_IP: <%= @request.remote_ip %>
+USER_AGENT: <%= @request.headers["User-Agent"] %>
+URL: <%= @request.url %>
+METHOD: <%= @request.method %>
+PARAMS:
+<%= @request.parameters.inspect.gsub(',', ",\n").html_safe %>
+REFERRER: <%= @request.referrer %>
+
+================================================================================
+Exception <%= @exception.class.to_s %> was raised.
+
+<% if @exception.kind_of?(ActiveRecord::RecordInvalid) -%>
+  CLASS: <%= @exception.record.class.name %>
+<% @exception.record.errors.full_messages.each do |message| -%>
+  <%= message %>
+<% end -%>
+<% else -%>
+  <%= @exception.message %>
+<% end -%>
+
+<%= @exception.backtrace.join("\n") %>
+================================================================================
