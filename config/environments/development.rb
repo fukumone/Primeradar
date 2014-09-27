@@ -36,6 +36,6 @@ Primeradar::Application.configure do
   #   enable_starttls_auto: true  }
 
   config.assets.debug = true
-  Primeradar::DeveloperMail = [ "fukuimone@gmail.com" ]
-  Primeradar::MailFrom = "key101now@gmail.com"
+  # Primeradar::DeveloperMail = [ "fukuimone@gmail.com" ]
+  # Primeradar::MailFrom = "key101now@gmail.com"
 end

@@ -1,4 +1,4 @@
-Internal Server Error (Primeradar)
+<!-- Internal Server Error (Primeradar)
 --------------------------------------------------------------------------------
 
 DATE_TIME: <%= Time.now.to_s(:db) %>
@@ -24,3 +24,4 @@ Exception <%= @exception.class.to_s %> was raised.
 
 <%= @exception.backtrace.join("\n") %>
 ================================================================================
+ -->
