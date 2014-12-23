@@ -14,7 +14,7 @@
 ActiveRecord::Schema.define(version: 20140111025557) do
 
   create_table "prime_numbers", force: true do |t|
-    t.integer "prime_number"
+    t.integer "prime_number", limit: 4
   end
 
 end
