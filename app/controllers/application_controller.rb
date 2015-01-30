@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   include ErrorsHelper
   protect_from_forgery with: :exception
 
-  rescue_from Exception, with: :rescue500 #if Rails.env.production?
+  rescue_from Exception, with: :rescue500 if Rails.env.production?
   rescue_from ActionController::RoutingError, with: :rescue404 if Rails.env.production?
 
   private
