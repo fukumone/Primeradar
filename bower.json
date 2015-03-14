@@ -1,0 +1,20 @@
+{
+  "name": "Primeradar",
+  "version": "0.1",
+  "homepage": "0.0.0.0:3000",
+  "authors": [],
+  "license": "MR.CATSBEE",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vendor/assets/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap-sass-official": "3.3.1",
+    "jquery-ui": "1.11.2",
+    "jquery-ujs": "*"
+  }
+}
