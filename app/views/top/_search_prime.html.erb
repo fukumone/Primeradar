@@ -1,11 +1,12 @@
+<br>
 <%= form_for :prime_form, :url => { :action => :search_prime }, method: :get do |f| %>
   <%= f.label '範囲検索' %>
   <%= f.text_field :prime_number_from, maxlength: 8, size: 20 %> 〜
   <%= f.text_field :prime_number_to, maxlength: 8, size: 20 %>
   <%= f.submit "検索", class: 'btn btn-success' %>
 <% end %>
-
-ケタ数が多くなると検索時間が遅くなります。
+<br>
+<p>ケタ数が多くなると検索時間が遅くなります。</p>
 
 <% if @range_prime.present? %>
   <h4 align="center">

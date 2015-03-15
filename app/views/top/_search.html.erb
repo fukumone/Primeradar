@@ -1,13 +1,10 @@
+<p>任意の素数を検索する、３０桁まで検索できます。</p>
 <%= form_for :prime_form, :url => { :action => :search }, class: 'form-inline', method: :get do |f| %>
   <div class="form-group">
     <%= f.text_field :prime_number, maxlength: 30, placeholder: '素数検索', size: 40 %>
     <%= f.submit "検索", class: 'btn btn-success' %>
   </div>
 <% end %>
-<br>
-任意の素数を検索する、３０桁まで検索できます。
-<br>
-
 <% if @search.prime_number && @search.prime? %>
   <h4 align="center">
     <%= number_with_delimiter(@search.prime_number) %>は素数です。

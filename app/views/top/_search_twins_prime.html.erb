@@ -5,9 +5,8 @@
   <%= f.text_field :twins_prime_number_to, maxlength: 8, size: 20 %>
   <%= f.submit "検索", class: 'btn btn-success' %>
 <% end %>
-  <br>
-  <br>
-  隣り合う素数の差が２の素数の組を検索します。
+<br>
+<p>隣り合う素数の差が２の素数の組を検索します。</p>
 
 <% if @twins_prime.present? %>
   <h4 align="center">
