@@ -20,6 +20,7 @@ Primeradar::Application.routes.draw do
       get :mersenne_number
       get :goldbachs_conjecture
       get :fermats_little_theorem
+      get :prime_factorization
     end
   end
 

@@ -1,5 +1,5 @@
 class PrimeController < ApplicationController
-  before_action :instance_search_form_get, only: [ :twins_prime, :prime_triplet, :prime_quadruplet ]
+  before_action :instance_search_form_get, only: [ :twins_prime, :prime_triplet, :prime_quadruplet, :prime_factorization ]
 
   def introduction_prime
   end
@@ -44,6 +44,14 @@ class PrimeController < ApplicationController
   end
 
   def fermats_little_theorem
+  end
+
+  def prime_factorization
+    if @search.valid? && @search.number
+      @factorization = @search.prime_factorization
+    else
+      flash.now.alert  = format_errors(@search)
+    end
   end
 
   private

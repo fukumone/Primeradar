@@ -4,7 +4,7 @@ class SearchForm
   attr_accessor :prime_number,:prime_number_from, :prime_number_to,
                 :twins_prime_number_from, :twins_prime_number_to,
                 :prime_triplet_from, :prime_triplet_to,
-                :prime_quadruplet_from, :prime_quadruplet_to
+                :prime_quadruplet_from, :prime_quadruplet_to, :number
 
   def initialize(params)
     if params[:prime_form]
@@ -18,7 +18,8 @@ class SearchForm
             :twins_prime_number_from, :twins_prime_number_to,
             :prime_triplet_from, :prime_triplet_to,
             :prime_quadruplet_from, :prime_quadruplet_to,
-            numericality: { only_integer: true, allow_blank: true }
+            :number,
+            numericality: { only_integer: true, greater_than_or_equal_to: 0, allow_blank: true }
 
   validate do
     # 素数範囲検索validation
@@ -68,6 +69,25 @@ class SearchForm
       .each_cons(4)
       .select{ |a, b, c, d| (b - a == 2 && c - a == 6 && d - a == 8) }
   end
+
+  ### 素因数分解 ###
+  def prime_factorization
+    tmp_number = @number
+    k = 2
+    str = ""
+    return false if tmp_number <= 0
+    while tmp_number != 1
+      if tmp_number % k == 0
+        tmp_number = tmp_number / k
+        str += k.to_s + "x"
+      else
+        k += 1
+      end
+    end
+    str.slice!(str.length - 1)
+    return str
+  end
+
 
   private
   def prime(int_a, int_b)
