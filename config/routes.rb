@@ -1,8 +1,9 @@
 Primeradar::Application.routes.draw do
   root 'top#index'
 
-  resources :top, only: [] do
+  resources :top, only: :index do
     collection do
+      get :search
       get :search_prime
       get :search_twins_prime
     end

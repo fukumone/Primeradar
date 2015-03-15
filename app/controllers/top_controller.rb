@@ -1,36 +1,33 @@
 class TopController < ApplicationController
-  before_action :form
-
   def index
-    if @search_form.valid?
-      if params[:prime_number].present?
-        @prime = params[:prime_number].to_i
-      end
-    else
-      flash.now.alert  = format_errors(@search_form)
-      render "index"
-    end
+  end
+
+  def search
+    @search = SearchForm.new(params)
+    render 'index'
   end
 
   def search_prime
-    if @search_form.valid?
-      @search_range = PrimeNumber.search_range_prime(params[:prime_number_from], params[:prime_number_to])
-      @search_range = Kaminari.paginate_array(@search_range).page(params[:page]).per(2000)
-      render "index"
+    @search = SearchForm.new(params)
+    if @search.valid?
+      @range_prime = @search.range_prime
+      @range_prime = Kaminari.paginate_array(@range_prime).page(params[:page]).per(2000)
+      render 'index'
     else
-      flash.now.alert  = format_errors(@search_form)
-      render "index"
+      flash.now.alert  = format_errors(@search)
+      render 'index'
     end
   end
 
   def search_twins_prime
-    if @search_form.valid?
-      @search_twins_range = PrimeNumber.search_twins_range_prime(params[:twins_prime_number_from], params[:twins_prime_number_to])
-      @search_twins_range = Kaminari.paginate_array(@search_twins_range).page(params[:page]).per(1000)
-      render "index"
+    @search = SearchForm.new(params)
+    if @search.valid?
+      @twins_prime = @search.twins_range_prime
+      @twins_prime = Kaminari.paginate_array(@twins_prime).page(params[:page]).per(1000)
+      render 'index'
     else
-      flash.now.alert  = format_errors(@search_form)
-      render "index"
+      flash.now.alert  = format_errors(@search)
+      render 'index'
     end
   end
 

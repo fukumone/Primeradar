@@ -1,28 +1,25 @@
-<%= form_tag [ :search_prime, :top, :index ], method: :get do %>
-<br>
-  範囲検索
-  <%= text_field_tag :prime_number_from, "", maxlength: 6 %> 〜
-  <%= text_field_tag :prime_number_to, "", maxlength: 6 %>
-  <%= submit_tag "検索" %>
-
-  <br>
-  <br>
-
-  ケタ数が多くなると検索時間が遅くなります。
+<%= form_for :prime_form, :url => { :action => :search_prime }, method: :get do |f| %>
+  <%= f.label '範囲検索' %>
+  <%= f.text_field :prime_number_from, maxlength: 6 %> 〜
+  <%= f.text_field :prime_number_to, maxlength: 6 %>
+  <%= f.submit "検索" %>
 <% end %>
-<% if @search_range.present? %>
+
+ケタ数が多くなると検索時間が遅くなります。
+
+<% if @range_prime.present? %>
   <h4 align="center">
-  <%= params[:prime_number_from].present? ? number_with_delimiter(params[:prime_number_from].to_i) : 1 %>〜<%= number_with_delimiter(params[:prime_number_to].to_i) %>の中の素数たち
-    <p>素数の合計：<%= number_with_delimiter((@search_range).total_count)  %></p>
+  <%= number_with_delimiter(@search.prime_number_from) %>〜<%= number_with_delimiter(@search.prime_number_to) %>の中の素数たち
+    <p>素数の合計：<%= number_with_delimiter(@range_prime.count)  %></p>
   </h4>
 
-  <%= paginate @search_range %>
+  <%= paginate @range_prime %>
   <br>
 
   <table width="80%" >
-    <% @search_range.each do |num| %>
+    <% @range_prime.each do |number| %>
       <td width="100px" style="float: left;">
-      <div class="prime"><%= number_with_delimiter(num["prime_number"]) %></div>
+      <div class="prime"><%= number_with_delimiter(number) %></div>
       </td>
     <% end %>
   </table>

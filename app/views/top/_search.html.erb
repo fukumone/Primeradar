@@ -1,0 +1,20 @@
+<%= form_for :prime_form, :url => { :action => :search }, class: 'form-inline', method: :get do |f| %>
+  <div class="form-group">
+    <%= f.text_field :prime_number, maxlength: 20, class: 'form-control col-sm-7', placeholder: '素数検索' %>
+    <%= f.submit "検索", class: 'btn btn-success col-sm-5 form-control' %>
+  </div>
+<% end %>
+<br>
+任意の素数を検索する、桁数は今現在確認した段階では10の20乗までは動きます。<br>
+1000兆の10万倍までです。
+<br>
+
+<% if @search.prime_number && @search.prime? %>
+  <h4 align="center">
+    <%= number_with_delimiter(@search.prime_number) %>は素数です。
+  </h4>
+<% else %>
+  <h4 align="center">
+  <%= @search.prime_number %>は素数ではありません。
+  </h4>
+<% end %>
