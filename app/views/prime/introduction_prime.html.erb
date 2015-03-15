@@ -10,5 +10,16 @@
   クレジットカードの取引ではRSAの暗号を使用し安全な取引ができるのは素数があるおかげ。
   フェルマーの小定理という素数の性質に関しての定理を使ってRSAの暗号に応用されている。
 </p>
+<br>
+<h4>なお等サイトでは素数に関連する下記の検索に対応しております。</h4>
+
+<ol>
+  <li><%= link_to "素数検索", :root, class: "current" %></li>
+  <li><%= link_to "双子素数検索", [ :twins_prime, :prime_index ], class: "current" %></li>
+  <li><%= link_to "三つ子素数検索", [ :prime_triplet, :prime_index ], class: "current" %></li>
+  <li><%= link_to "四つ子素数検索", [ :prime_quadruplet, :prime_index ], class: "current" %></li>
+  <li><%= link_to "素因数分解", [ :prime_factorization, :prime_index ], class: "current" %></li>
+  <li>ゴールドバッハ検索(実装中)</li>
+</ol>
 
 </div>
