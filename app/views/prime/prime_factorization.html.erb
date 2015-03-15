@@ -4,13 +4,13 @@
   </div>
   <p>素因数分解します、好きな数字を入力して下さい。</p>
   <%= form_for :prime_form, :url => { :action => :prime_factorization }, method: :get do |f| %>
-    <%= f.text_field :number, maxlength: 8, size: 20 %>
+    <%= f.text_field :number, maxlength: 12, size: 20 %>
     <%= f.submit "検索", class: 'btn btn-success' %>
   <% end %>
 
   <h3 align="left">
     <% if @factorization %>
-      <%= "#{@search.number}を素因数分解すると" %>
+      <%= "#{number_with_delimiter(@search.number)}を素因数分解すると" %>
       <span style="color: blue;"><%= "#{@factorization}" %></span>
       になりました。
     <% end %>
