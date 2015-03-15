@@ -5,8 +5,6 @@
   <%= f.text_field :prime_number_to, maxlength: 8, size: 20 %>
   <%= f.submit "検索", class: 'btn btn-success' %>
 <% end %>
-<br>
-<p>ケタ数が多くなると検索時間が遅くなります。</p>
 
 <% if @range_prime.present? %>
   <h4 align="center">
