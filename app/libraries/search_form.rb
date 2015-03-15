@@ -20,40 +20,18 @@ class SearchForm
             :prime_quadruplet_from, :prime_quadruplet_to,
             numericality: { only_integer: true, allow_blank: true }
 
-  # validate do # 素数範囲検索validation
-  #   if (prime_number_from.present? && prime_number_to.present?) && prime_number_to.to_i < prime_number_from.to_i
-  #     errors.add(:base, '数字の大小が反対です。')
-  #   elsif prime_number_from.present? && prime_number_to.blank?
-  #     errors.add(:base, '後に続く数字を入力して下さい。')
-  #   end
-  # end
+  validate do
+    # 素数範囲検索validation
+    validata_proc.call(prime_number_from, prime_number_to)
+    # 双子素数validation
+    validata_proc.call(twins_prime_number_from, twins_prime_number_to)
+    # 三つ子素数validation
+    validata_proc.call(prime_triplet_from, prime_triplet_to)
+    # 四つ子素数validation
+    validata_proc.call(prime_quadruplet_from, prime_quadruplet_to)
+  end
 
-  # validate do # 双子素数validation
-  #   if (twins_prime_number_from.present? && twins_prime_number_to.present?) && twins_prime_number_to.to_i < twins_prime_number_from.to_i
-  #     errors.add(:base, '数字の大小が反対です。')
-  #   elsif twins_prime_number_from.present? && twins_prime_number_to.blank?
-  #     errors.add(:base, '後に続く数字を入力して下さい。')
-  #   end
-  # end
-
-  # validate do # 三つ子素数validation
-  #   if (prime_triplet_from.present? && prime_triplet_to.present?) && prime_triplet_to.to_i < prime_triplet_from.to_i
-  #     errors.add(:base, '数字の大小が反対です。')
-  #   elsif prime_triplet_from.present? && prime_triplet_to.blank?
-  #     errors.add(:base, '後に続く数字を入力して下さい。')
-  #   end
-  # end
-
-  # validate do # 四つ子素数validation
-  #   if (prime_quadruplet_from.present? && prime_quadruplet_to.present?) && prime_quadruplet_to.to_i < prime_quadruplet_from.to_i
-  #     errors.add(:base, '数字の大小が反対です。')
-  #   elsif prime_quadruplet_from.present? && prime_quadruplet_to.blank?
-  #     errors.add(:base, '後に続く数字を入力して下さい。')
-  #   end
-  # end
-
-  ### 素数検索 ###
-
+  ### 素数判定 ###
   def prime?
     sqrt = Math.sqrt(@prime_number)
     factor_found = (2..sqrt).any? { |i| @prime_number % i == 0 }
@@ -64,6 +42,7 @@ class SearchForm
     end
   end
 
+  ### 素数検索 ###
   def range_prime
     PrimeNumber.where(prime_number: [@prime_number_from..@prime_number_to])
                .pluck(:prime_number)
@@ -90,7 +69,17 @@ class SearchForm
 
   private
   def prime(int_a, int_b)
-    ActiveRecord::Base.connection.execute("SELECT prime_number FROM prime_numbers WHERE
-    (#{int_a.to_i} < prime_number and prime_number < #{int_b.to_i})")
+    ActiveRecord::Base.connection.execute("SELECT prime_number FROM prime_numbers
+      WHERE prime_number BETWEEN #{int_a.to_i} AND #{int_b.to_i}")
+  end
+
+  def validata_proc
+    proc{ |number_1, number_2|
+      if (number_1.present? && number_2.present?) && number_2.to_i < number_1.to_i
+        errors.add(:base, '数字の大小が反対です。')
+      elsif number_1.present? && number_2.blank?
+        errors.add(:base, '後に続く数字を入力して下さい。')
+      end
+    }
   end
 end

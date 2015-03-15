@@ -1,8 +1,8 @@
 <%= form_for :prime_form, :url => { :action => :search_twins_prime }, method: :get do |f| %>
 <br>
   双子素数検索
-  <%= f.text_field :twins_prime_number_from, maxlength: 6 %> 〜
-  <%= f.text_field :twins_prime_number_to, maxlength: 6 %>
+  <%= f.text_field :twins_prime_number_from, maxlength: 8 %> 〜
+  <%= f.text_field :twins_prime_number_to, maxlength: 8 %>
   <%= f.submit "検索" %>
 <% end %>
 
