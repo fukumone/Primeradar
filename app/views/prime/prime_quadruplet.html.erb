@@ -1,44 +1,39 @@
 <div style="margin: 50px;">
-
-<p>
-  四つ子素数（よつごそすう、prime quadruplet）とは、p, p+2, p+6, p+8 がすべて素数であるような数の組をいう
-</p>
-
-<div class="error">
   <p>
-    <%= flash.alert %>
+    四つ子素数（よつごそすう、prime quadruplet）とは、p, p+2, p+6, p+8 がすべて素数であるような数の組をいう
   </p>
-</div>
 
-<%= form_tag [ :prime_quadruplet, :prime_index ], method: :get do %>
-<br>
-  四つ子素数 検索
-  <%= text_field_tag :prime_quadruplet_from, "",maxlength: 6 %> 〜
-  <%= text_field_tag :prime_quadruplet_to, "", maxlength: 6 %>
-  <%= submit_tag "検索" %>
-<% end %>
+  <div class="error">
+    <p>
+      <%= flash.alert %>
+    </p>
+  </div>
 
-<% if @search_prime_quadruplet.present? %>
-<h4 style="text-align: center;">
-
-<%= params[:prime_quadruplet_from].present? ? number_with_delimiter(params[:prime_quadruplet_from].to_i) : 1 %>〜<%= number_with_delimiter(params[:prime_quadruplet_to].to_i) %>の中の四つ子素数たち
-<p>四つ子素数の合計：<%= number_with_delimiter(@search_prime_quadruplet.total_count) %></p>
-</h4>
-
-<%= paginate @search_prime_quadruplet %>
-<br>
-
-<table width="30%">
-<% @search_prime_quadruplet.each do |num| %>
-  <tr class="<%= cycle("odd", "even") %>">
-  <td class="prime">
-    <% num.each do |prime_number| %>
-    <%= number_with_delimiter(prime_number) %>
-    <% end %>
-  </td>
-  </tr>
+  <%= form_for :prime_form, :url => { :action => :prime_quadruplet }, method: :get do |f| %>
+    <%= f.text_field :prime_quadruplet_from, maxlength: 8, size: 20 %> 〜
+    <%= f.text_field :prime_quadruplet_to, maxlength: 8, size: 20 %>
+    <%= f.submit "検索", class: 'btn btn-success' %>
   <% end %>
-</table>
-<% end %>
 
+  <% if @prime_quadruplet.present? %>
+    <h4 style="text-align: center;">
+    <%= number_with_delimiter(@search.prime_quadruplet_from) %>〜<%= number_with_delimiter(@search.prime_quadruplet_to) %>の中の四つ子素数たち
+    <p>四つ子素数の合計：<%= number_with_delimiter(@prime_quadruplet.count) %></p>
+    </h4>
+
+    <%= paginate @prime_quadruplet %>
+    <br>
+
+    <table width="30%">
+    <% @prime_quadruplet.each do |num| %>
+      <tr class="<%= cycle("odd", "even") %>">
+      <td class="prime">
+        <% num.each do |prime_number| %>
+        <%= number_with_delimiter(prime_number) %>
+        <% end %>
+      </td>
+      </tr>
+      <% end %>
+    </table>
+  <% end %>
 </div>

@@ -44,33 +44,35 @@ class SearchForm
 
   ### 素数検索 ###
   def range_prime
-    PrimeNumber.where(prime_number: [@prime_number_from..@prime_number_to])
-               .pluck(:prime_number)
+    prime(@prime_number_from, @prime_number_to)
   end
 
   ### 双子素数検索 ###
   def twins_range_prime
-    prime = PrimeNumber.where(prime_number: [@twins_prime_number_from..@twins_prime_number_to])
-                       .pluck(:prime_number).flatten
-    prime.each_cons(2).select{ |b, r| (r - b) == 2}
+    prime(@twins_prime_number_from, @twins_prime_number_to)
+      .flatten
+      .each_cons(2)
+      .select{ |b, r| (r - b) == 2}
   end
 
   ### 三つ子素数検索　###
-  def prime_triplet(prime_triplet_from, prime_triplet_to)
-    results = prime(prime_triplet_from, prime_triplet_to).to_a.flatten
-    results.each_cons(3).select{ |a, b, c| (b - a == 2 && c - a == 6) || (b - a == 4 && c - a == 6) }
+  def prime_triplet
+    prime(@prime_triplet_from, @prime_triplet_to)
+      .each_cons(3)
+      .select{ |a, b, c| (b - a == 2 && c - a == 6) || (b - a == 4 && c - a == 6) }
   end
 
   ### 四つ子素数検索　###
-  def prime_quadruplet(prime_quadruplet_from, prime_quadruplet_to)
-    results = prime(prime_quadruplet_from, prime_quadruplet_to).to_a.flatten
-    results.each_cons(4).select{ |a, b, c, d| (b - a == 2 && c - a == 6 && d - a == 8) }
+  def prime_quadruplet
+    prime(@prime_quadruplet_from, @prime_quadruplet_to)
+      .each_cons(4)
+      .select{ |a, b, c, d| (b - a == 2 && c - a == 6 && d - a == 8) }
   end
 
   private
   def prime(int_a, int_b)
-    ActiveRecord::Base.connection.execute("SELECT prime_number FROM prime_numbers
-      WHERE prime_number BETWEEN #{int_a.to_i} AND #{int_b.to_i}")
+    PrimeNumber.where(prime_number: [int_a..int_b])
+               .pluck(:prime_number)
   end
 
   def validata_proc

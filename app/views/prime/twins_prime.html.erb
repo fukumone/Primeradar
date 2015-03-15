@@ -2,11 +2,11 @@
 
 <p>双子素数（ふたごそすう、twin prime）とは、差が 2 である2つの素数の組のこと。</p>
 
-<%= form_tag [ :twins_prime, :prime_index ], method: :get do %>
+<%= form_for :prime_form, :url => { :action => :twins_prime }, method: :get do |f| %>
 <br>
-  <%= text_field_tag :twins_prime_number_from, "", maxlength: 6 %> 〜
-  <%= text_field_tag :twins_prime_number_to, "", maxlength: 6 %>
-  <%= submit_tag "検索" %>
+  <%= f.text_field :twins_prime_number_from, maxlength: 8, size: 20 %> 〜
+  <%= f.text_field :twins_prime_number_to, maxlength: 8, size: 20 %>
+  <%= f.submit "検索", class: 'btn btn-success' %>
 <% end %>
 
 <div class="error">
@@ -14,25 +14,23 @@
   <br>
 </div>
 
-<% if @search_twins_range.present? %>
-<h4 align="center">
-<%= params[:twins_prime_number_from].present? ? number_with_delimiter(params[:twins_prime_number_from].to_i) : 1 %>〜<%= number_with_delimiter(params[:twins_prime_number_to].to_i) %>の中の双子素数たち
-<p>双子素数の組の合計：<%= number_with_delimiter(@search_twins_range.total_count) %></p>
-</h4>
+<% if @twins_prime.present? %>
+  <h4 align="center">
+  <%= number_with_delimiter(@search.twins_prime_number_from) %>〜<%= number_with_delimiter(@search.twins_prime_number_to) %>の中の双子素数たち
+  <p>双子素数の組の合計：<%= number_with_delimiter(@twins_prime.count) %></p>
+  </h4>
 
-<%= paginate @search_twins_range %>
-<br>
+  <%= paginate @twins_prime %>
+  <br>
 
-<table width="80%" >
-  <% @search_twins_range.each do |num| %>
-    <td width="100px" style="float: left;">
-    <div class="prime"><%= number_with_delimiter(num.flatten.first) %></div>
-    </td>
-    <td width="100px" style="float: left;">
-    <div class="prime" style="color: blue;"><%= number_with_delimiter(num.flatten.last) %></div>
-    </td>
-  <% end %>
-</table>
+  <table width="80%" >
+    <% @twins_prime.each do |number| %>
+      <td width="100px" style="float: left;">
+        <div class="prime"><%= number_with_delimiter(number.flatten.first) %></div>
+      </td>
+      <td width="100px" style="float: left;">
+        <div class="prime" style="color: blue;"><%= number_with_delimiter(number.flatten.last) %></div>
+      </td>
+    <% end %>
+  </table>
 <% end %>
-
-</div>

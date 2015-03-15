@@ -1,5 +1,5 @@
 class PrimeController < ApplicationController
-  before_action :form
+  before_action :instance_search_form_get, only: [ :twins_prime, :prime_triplet, :prime_quadruplet ]
 
   def introduction_prime
   end
@@ -8,11 +8,11 @@ class PrimeController < ApplicationController
   end
 
   def twins_prime
-    if @search_form.valid?
-      @search_twins_range = PrimeNumber.search_twins_range_prime(params[:twins_prime_number_from], params[:twins_prime_number_to])
-      @search_twins_range = Kaminari.paginate_array(@search_twins_range).page(params[:page]).per(1000)
+    if @search.valid?
+      @twins_prime = @search.twins_range_prime
+      @twins_prime = Kaminari.paginate_array(@twins_prime).page(params[:page]).per(1000)
     else
-      flash.now.alert  = format_errors(@search_form)
+      flash.now.alert  = format_errors(@search)
     end
   end
 
@@ -20,20 +20,20 @@ class PrimeController < ApplicationController
   end
 
   def prime_triplet
-    if @search_form.valid?
-      @search_prime_triplet = PrimeNumber.search_prime_triplet(params[:prime_triplet_from], params[:prime_triplet_to])
-      @search_prime_triplet = Kaminari.paginate_array(@search_prime_triplet).page(params[:page]).per(500)
+    if @search.valid?
+      @prime_triplet = @search.prime_triplet
+      @prime_triplet = Kaminari.paginate_array(@prime_triplet).page(params[:page]).per(500)
     else
-      flash.now.alert  = format_errors(@search_form)
+      flash.now.alert  = format_errors(@search)
     end
   end
 
   def prime_quadruplet
-    if @search_form.valid?
-      @search_prime_quadruplet = PrimeNumber.search_prime_quadruplet(params[:prime_quadruplet_from], params[:prime_quadruplet_to])
-      @search_prime_quadruplet = Kaminari.paginate_array(@search_prime_quadruplet).page(params[:page]).per(500)
+    if @search.valid?
+      @prime_quadruplet = @search.prime_quadruplet
+      @prime_quadruplet = Kaminari.paginate_array(@prime_quadruplet).page(params[:page]).per(500)
     else
-    flash.now.alert  = format_errors(@search_form)
+    flash.now.alert  = format_errors(@search)
     end
   end
 
@@ -46,4 +46,8 @@ class PrimeController < ApplicationController
   def fermats_little_theorem
   end
 
+  private
+  def instance_search_form_get
+    @search = SearchForm.new(params)
+  end
 end
