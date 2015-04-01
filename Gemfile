@@ -28,12 +28,7 @@ group :development, :test do
 end
 
 group :test do
-  gem 'rspec'
   gem 'rspec-rails'
-  gem 'rspec-given'
-  gem 'factory_girl_rails'
-  gem 'capybara'
-  gem 'launchy'
 end
 
 group :production do

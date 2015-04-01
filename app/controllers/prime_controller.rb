@@ -1,5 +1,9 @@
 class PrimeController < ApplicationController
-  before_action :instance_search_form_get, only: [ :twins_prime, :prime_triplet, :prime_quadruplet, :prime_factorization ]
+  before_action :instance_search_form_get, only: [ :twins_prime,
+                                                   :prime_triplet,
+                                                   :prime_quadruplet,
+                                                   :prime_factorization,
+                                                   :goldbachs_conjecture ]
 
   def introduction_prime
   end
@@ -41,6 +45,11 @@ class PrimeController < ApplicationController
   end
 
   def goldbachs_conjecture
+    if @search.valid? && @search.goldbachs_conjecture_number
+      @goldbachs = @search.goldbachs_conjecture
+    else
+      flash.now.alert  = format_errors(@search)
+    end
   end
 
   def fermats_little_theorem

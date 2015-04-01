@@ -38,7 +38,6 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
-    addressable (2.3.6)
     annotate (2.6.5)
       activerecord (>= 2.3.0)
       rake (>= 0.8.7)
@@ -50,12 +49,6 @@ GEM
       columnize (~> 0.8)
       debugger-linecache (~> 1.2)
       slop (~> 3.6)
-    capybara (2.4.4)
-      mime-types (>= 1.16)
-      nokogiri (>= 1.3.3)
-      rack (>= 1.0.0)
-      rack-test (>= 0.5.4)
-      xpath (~> 2.0)
     coffee-rails (4.1.0)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.0)
@@ -69,13 +62,6 @@ GEM
     diff-lcs (1.2.5)
     erubis (2.7.0)
     execjs (2.2.2)
-    factory_girl (4.5.0)
-      activesupport (>= 3.0.0)
-    factory_girl_rails (4.5.0)
-      factory_girl (~> 4.5.0)
-      railties (>= 3.0.0)
-    given_core (3.5.4)
-      sorcerer (>= 0.3.7)
     globalid (0.3.0)
       activesupport (>= 4.1.0)
     google-analytics-rails (0.0.6)
@@ -92,8 +78,6 @@ GEM
     kaminari (0.16.1)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
-    launchy (2.4.3)
-      addressable (~> 2.3)
     libv8 (3.16.14.7)
     loofah (2.0.1)
       nokogiri (>= 1.5.9)
@@ -148,18 +132,11 @@ GEM
     rdoc (4.2.0)
       json (~> 1.4)
     ref (1.0.5)
-    rspec (3.1.0)
-      rspec-core (~> 3.1.0)
-      rspec-expectations (~> 3.1.0)
-      rspec-mocks (~> 3.1.0)
     rspec-core (3.1.7)
       rspec-support (~> 3.1.0)
     rspec-expectations (3.1.2)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.1.0)
-    rspec-given (3.5.4)
-      given_core (= 3.5.4)
-      rspec (>= 2.12)
     rspec-mocks (3.1.3)
       rspec-support (~> 3.1.0)
     rspec-rails (3.1.0)
@@ -182,7 +159,6 @@ GEM
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
     slop (3.6.0)
-    sorcerer (1.0.2)
     spring (1.2.0)
     sprockets (2.12.3)
       hike (~> 1.2)
@@ -211,8 +187,6 @@ GEM
       binding_of_caller (>= 0.7.2)
       railties (~> 4.0)
       sprockets-rails (>= 2.0, < 4.0)
-    xpath (2.0.0)
-      nokogiri (~> 1.3)
 
 PLATFORMS
   ruby
@@ -221,14 +195,11 @@ DEPENDENCIES
   activerecord-import
   annotate
   byebug
-  capybara
   coffee-rails (~> 4.1.0)
-  factory_girl_rails
   google-analytics-rails
   jbuilder (~> 2.0)
   jquery-rails
   kaminari
-  launchy
   mysql2
   nokogiri
   parallel
@@ -237,8 +208,6 @@ DEPENDENCIES
   rails-html-sanitizer (~> 1.0)
   rails-i18n
   rails_12factor
-  rspec
-  rspec-given
   rspec-rails
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)

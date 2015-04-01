@@ -1,21 +1,24 @@
 <div style="margin: 50px;">
-
-<p>
+  <h3>コールドバッハ予想とは、全ての 2 よりも大きな偶数は二つの素数の和として表すことができる数の事。</h3>
+  <h4>
     予想には、ほとんど同値ないくつかの述べ方があり、次のように述べることが多い：<br>
-  4以上の全ての偶数は、二つの素数の和で表すことができる。<br>
-  6以上の全ての偶数は、二つの奇素数の和で表すことができる。（4=2+2:偶素数同士の和）<br>
-  このとき、同じ素数を2度使っても良いものとする。<br>
-  ＜wikipedi引用＞
-</p>
-<p>
-  未解決でいまだ証明されていない。
-</p>
+    4以上の全ての偶数は、二つの素数の和で表すことができる。<br>
+    6以上の全ての偶数は、二つの奇素数の和で表すことができる。（4=2+2:偶素数同士の和）<br>
+    このとき、同じ素数を2度使っても良いものとする。<br>
+    ＜wikipedi引用＞
+  </h4>
+  <p>未解決でいまだ証明されていない。</p>
+  <%= form_for :prime_form, :url => { :action => :goldbachs_conjecture }, method: :get do |f| %>
+    <%= f.text_field :goldbachs_conjecture_number, maxlength: 6, size: 20 %>
+    <%= f.submit "検索", class: 'btn btn-success' %>
+  <% end %>
 
-<%= form_tag [ :goldbachs_conjecture, :prime_index ], method: :get do %>
-<br>
-  コールドバッハ検索 検索
-  <%= text_field_tag :goldbachs_conjecture_number, "",maxlength: 6 %>
-  <%= submit_tag "検索" %>
-<% end %>
 
+  <h3 align="left">
+    <%# if @goldbachs %>
+      <%#= "#{number_with_delimiter(@search.goldbachs_conjecture_number)}を素因数分解すると" %>
+      <!-- <span style="color: blue;"><%#= "#{@goldbachs}" %></span> -->
+      <!-- になりました。 -->
+    <%# end %>
+  </h3>
 </div>

@@ -4,7 +4,8 @@ class SearchForm
   attr_accessor :prime_number,:prime_number_from, :prime_number_to,
                 :twins_prime_number_from, :twins_prime_number_to,
                 :prime_triplet_from, :prime_triplet_to,
-                :prime_quadruplet_from, :prime_quadruplet_to, :number
+                :prime_quadruplet_from, :prime_quadruplet_to,
+                :number, :goldbachs_conjecture_number
 
   def initialize(params)
     if params[:prime_form]
@@ -18,7 +19,7 @@ class SearchForm
             :twins_prime_number_from, :twins_prime_number_to,
             :prime_triplet_from, :prime_triplet_to,
             :prime_quadruplet_from, :prime_quadruplet_to,
-            :number,
+            :number, :goldbachs_conjecture_number,
             numericality: { only_integer: true, greater_than_or_equal_to: 0, allow_blank: true }
 
   validate do
@@ -88,6 +89,20 @@ class SearchForm
     return str
   end
 
+  ### コールドバッハ検索 ###
+  def goldbachs_conjecture
+    tmp = @goldbachs_conjecture
+    int = 0
+    k = 2
+    str = ""
+    return false unless tmp % 2 == 0
+    if tmp % k == 0 && int != tmp
+      int += k
+      str += k.to_s + "+"
+    else
+      k += 1
+    end
+  end
 
   private
   def prime(int_a, int_b)
