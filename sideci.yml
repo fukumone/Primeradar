@@ -1,0 +1,7 @@
+linter:
+  code_sniffer:
+    options:
+      standard: PSR2
+  phpmd:
+    options:
+      rules: codesize,naming,custom_rule.xml
