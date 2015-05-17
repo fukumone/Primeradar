@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.2.0'
+ruby '2.2.2'
 gem 'rails', '4.2.0'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
@@ -29,8 +29,11 @@ end
 
 group :test do
   gem 'rspec-rails'
+  gem "codeclimate-test-reporter", group: :test, require: nil
 end
 
 group :production do
   gem 'rails_12factor'
+  gem 'puma'
+  gem 'foreman'
 end
