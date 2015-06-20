@@ -1,6 +1,10 @@
 dependencies:
   pre:
     - bash ./bin/install-mysql-5.6.sh
+cache_directories:
+    - "vendor/bundle"
+  override:
+    - bundle -j4 --path=vendor/bundle
 database:
   override:
     - mv config/database.yml.mysql2 config/database.yml
