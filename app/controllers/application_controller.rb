@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
   rescue_from ActionController::RoutingError, with: :rescue404 if Rails.env.production?
 
   private
+
   def rescue500(e)
     @exception = e
     render 'errors/internal_server_error', status: 500

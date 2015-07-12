@@ -36,11 +36,12 @@ class TopController < ApplicationController
   end
 
   def routing_error
-    raise ActionController::RoutingError,
-    "No route matches #{request.path.inspect}"
+    fail ActionController::RoutingError,
+         "No route matches #{request.path.inspect}"
   end
 
   private
+
   def instance_search_form_get
     @search = SearchForm.new(params)
   end

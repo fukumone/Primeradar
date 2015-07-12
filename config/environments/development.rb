@@ -23,11 +23,11 @@ Primeradar::Application.configure do
   config.action_mailer.perform_deliveries = true
   # 電子メールが配信完了できない場合に、エラーを発生させるか
   config.action_mailer.raise_delivery_errors = false
-  config.action_mailer.default_url_options = { :host => "localhost:3000" }
+  config.action_mailer.default_url_options = { host: 'localhost:3000' }
 
   # 電子メールの配信方法を設定する
   config.action_mailer.delivery_method = :test
-  config.action_mailer.default_options = {from: "key101now@gmail.com"}
+  config.action_mailer.default_options = { from: 'key101now@gmail.com' }
   # config.action_mailer.smtp_settings = {
   #   address:              'localhost',
   #   port:                 587,

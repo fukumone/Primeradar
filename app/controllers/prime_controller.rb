@@ -1,9 +1,9 @@
 class PrimeController < ApplicationController
-  before_action :instance_search_form_get, only: [ :twins_prime,
-                                                   :prime_triplet,
-                                                   :prime_quadruplet,
-                                                   :prime_factorization,
-                                                   :goldbachs_conjecture ]
+  before_action :instance_search_form_get, only: [:twins_prime,
+                                                  :prime_triplet,
+                                                  :prime_quadruplet,
+                                                  :prime_factorization,
+                                                  :goldbachs_conjecture]
 
   def introduction_prime
   end
@@ -37,7 +37,7 @@ class PrimeController < ApplicationController
       @prime_quadruplet = @search.prime_quadruplet
       @prime_quadruplet = Kaminari.paginate_array(@prime_quadruplet).page(params[:page]).per(500)
     else
-    flash.now.alert  = format_errors(@search)
+      flash.now.alert  = format_errors(@search)
     end
   end
 
@@ -64,6 +64,7 @@ class PrimeController < ApplicationController
   end
 
   private
+
   def instance_search_form_get
     @search = SearchForm.new(params)
   end

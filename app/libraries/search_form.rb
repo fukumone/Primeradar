@@ -1,7 +1,7 @@
 class SearchForm
   include ActiveModel::Model
 
-  attr_accessor :prime_number,:prime_number_from, :prime_number_to,
+  attr_accessor :prime_number, :prime_number_from, :prime_number_to,
                 :twins_prime_number_from, :twins_prime_number_to,
                 :prime_triplet_from, :prime_triplet_to,
                 :prime_quadruplet_from, :prime_quadruplet_to,
@@ -15,7 +15,7 @@ class SearchForm
     end
   end
 
-  validates :prime_number,:prime_number_from, :prime_number_to,
+  validates :prime_number, :prime_number_from, :prime_number_to,
             :twins_prime_number_from, :twins_prime_number_to,
             :prime_triplet_from, :prime_triplet_to,
             :prime_quadruplet_from, :prime_quadruplet_to,
@@ -54,39 +54,39 @@ class SearchForm
     prime(@twins_prime_number_from, @twins_prime_number_to)
       .flatten
       .each_cons(2)
-      .select{ |b, r| (r - b) == 2}
+      .select { |b, r| (r - b) == 2 }
   end
 
   ### 三つ子素数検索　###
   def prime_triplet
     prime(@prime_triplet_from, @prime_triplet_to)
       .each_cons(3)
-      .select{ |a, b, c| (b - a == 2 && c - a == 6) || (b - a == 4 && c - a == 6) }
+      .select { |a, b, c| (b - a == 2 && c - a == 6) || (b - a == 4 && c - a == 6) }
   end
 
   ### 四つ子素数検索　###
   def prime_quadruplet
     prime(@prime_quadruplet_from, @prime_quadruplet_to)
       .each_cons(4)
-      .select{ |a, b, c, d| (b - a == 2 && c - a == 6 && d - a == 8) }
+      .select { |a, b, c, d| (b - a == 2 && c - a == 6 && d - a == 8) }
   end
 
   ### 素因数分解 ###
   def prime_factorization
     tmp_number = @number
     k = 2
-    str = ""
+    str = ''
     return false if tmp_number <= 0
     while tmp_number != 1
       if tmp_number % k == 0
-        tmp_number = tmp_number / k
-        str += k.to_s + "x"
+        tmp_number /= k
+        str += k.to_s + 'x'
       else
         k += 1
       end
     end
     str.slice!(str.length - 1)
-    return str
+    str
   end
 
   ### コールドバッハ検索 ###
@@ -94,29 +94,30 @@ class SearchForm
     tmp = @goldbachs_conjecture
     int = 0
     k = 2
-    str = ""
-    return false unless tmp % 2 == 0
+    str = ''
+    return false unless tmp.even?
     if tmp % k == 0 && int != tmp
       int += k
-      str += k.to_s + "+"
+      str += k.to_s + '+'
     else
       k += 1
     end
   end
 
   private
+
   def prime(int_a, int_b)
     PrimeNumber.where(prime_number: [int_a..int_b])
-               .pluck(:prime_number)
+      .pluck(:prime_number)
   end
 
   def validata_proc
-    proc{ |number_1, number_2|
+    proc do |number_1, number_2|
       if (number_1.present? && number_2.present?) && number_2.to_i < number_1.to_i
         errors.add(:base, '数字の大小が反対です。')
       elsif number_1.present? && number_2.blank?
         errors.add(:base, '後に続く数字を入力して下さい。')
       end
-    }
+    end
   end
 end

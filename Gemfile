@@ -30,7 +30,7 @@ end
 
 group :test do
   gem 'rspec-rails'
-  gem "codeclimate-test-reporter", group: :test, require: nil
+  gem 'codeclimate-test-reporter', group: :test, require: nil
 end
 
 group :production do

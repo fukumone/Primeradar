@@ -1,16 +1,16 @@
 require 'rails_helper'
 
 describe 'PrimeNumberSearch' do
-  params = { :prime_form => {
-    "prime_number"=>5,
-    "prime_number_from"=>"0", "prime_number_to"=>"100",
-    "twins_prime_number_from"=>"0", "twins_prime_number_to"=>"100",
-    "prime_triplet_from"=>"0", "prime_triplet_to"=>"100",
-    "prime_quadruplet_from"=>"0", "prime_quadruplet_to"=>"100",
-    "number"=>"100"
-    } }
+  params = { prime_form: {
+    'prime_number' => 5,
+    'prime_number_from' => '0', 'prime_number_to' => '100',
+    'twins_prime_number_from' => '0', 'twins_prime_number_to' => '100',
+    'prime_triplet_from' => '0', 'prime_triplet_to' => '100',
+    'prime_quadruplet_from' => '0', 'prime_quadruplet_to' => '100',
+    'number' => '100'
+  } }
   prime = SearchForm.new(params)
-  prime2 = SearchForm.new({ :prime_form => {"prime_number"=>6} })
+  prime2 = SearchForm.new(prime_form: { 'prime_number' => 6 })
 
   example '素数判定' do
     expect(prime.prime?).to eq(true)
@@ -37,6 +37,6 @@ describe 'PrimeNumberSearch' do
   end
 
   example '素因数分解' do
-    expect(prime.prime_factorization).to eq("2x2x5x5")
+    expect(prime.prime_factorization).to eq('2x2x5x5')
   end
 end
