@@ -24,6 +24,8 @@ group :development, :test do
   gem 'annotate'
   gem 'quiet_assets'
   gem 'spring'
+  gem 'rubocop'
+  gem 'pre-commit'
 end
 
 group :test do
