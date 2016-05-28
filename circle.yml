@@ -8,9 +8,3 @@ database:
 test:
   override:
     - bundle exec rspec spec/
-
-deployment:
-  production:
-    branch: master
-    heroku:
-      appname: prime-radar
