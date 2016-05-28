@@ -1,6 +1,15 @@
 require 'rails_helper'
 
 describe 'PrimeNumberSearch' do
+    before do
+      if PrimeNumber.exists?
+        PrimeNumber.delete_all
+      else
+        prime = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97, 101]
+        prime.each { |num| PrimeNumber.create(prime_number: num) }
+      end
+    end
+
   params = { prime_form: {
     'prime_number' => 5,
     'prime_number_from' => '0', 'prime_number_to' => '100',
